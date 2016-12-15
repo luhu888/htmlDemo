@@ -74,6 +74,9 @@
 
 34. frame标签中的属性：frameborder规定是否显示框架周围的边框，但是在HTML中最好不要设置该属性，用CSS来应用边框样式和颜色；marginheight属性规定框架内容与框架的上方和下方之间的高度，以像素计
  < frame src="frame_a.htm" marginheight="50" />文字距离上边有50个像素；marginwidth属性规定的框架内容与框架的左边和右边之间的距离，以像素计，< frame src="frame_a.htm" marginwidth="50" />内容文字距离左边50个像素；name规定框架的名称，< frame src="frame_a.htm" name="frame_a" />；noresize属性规定用户无法调整框架的大小，< frame noresize="noresize">；scrolling属性规定是否在框架中显示滚动条，<frame scrolling="value">（auto，yes，no）；src属性规定在框架中显示的文档的URL< frame src="URL">。
+35. < div>与< /div>属性可定义文档中的分区或节，比如将文档的一个部分显示为绿色。
+
+36.      
 ![](http://i.imgur.com/JKSyjRB.png)
 
    网页主要由3个部分组成：结构（Structure）,表现（Presentation）和行为（Behavior），“结构”决定了网页是什么；“表现”决定了网页看起来是什么样子；“行为”决定了网页做什么。不严谨地说，“结构”、“表现”、“行为”分别对应三种技术，即(x)html、CSS、JavaScript，也就是说，(x)html用来决定网页的结构和内容，CSS用来设定网页的表现形式JavaScript用来控制网页的行为。三者关系如图1.4所示。
