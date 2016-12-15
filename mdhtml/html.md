@@ -75,8 +75,18 @@
 34. frame标签中的属性：frameborder规定是否显示框架周围的边框，但是在HTML中最好不要设置该属性，用CSS来应用边框样式和颜色；marginheight属性规定框架内容与框架的上方和下方之间的高度，以像素计
  < frame src="frame_a.htm" marginheight="50" />文字距离上边有50个像素；marginwidth属性规定的框架内容与框架的左边和右边之间的距离，以像素计，< frame src="frame_a.htm" marginwidth="50" />内容文字距离左边50个像素；name规定框架的名称，< frame src="frame_a.htm" name="frame_a" />；noresize属性规定用户无法调整框架的大小，< frame noresize="noresize">；scrolling属性规定是否在框架中显示滚动条，<frame scrolling="value">（auto，yes，no）；src属性规定在框架中显示的文档的URL< frame src="URL">。
 35. < div>与< /div>属性可定义文档中的分区或节，比如将文档的一个部分显示为绿色。
+    < span>与< /span>属性与div类似，区别在于该定义的节默认不会换行。
 
-36.      
+36. h5的空元素语法，area,base,br,col,command,embed,hr,img,input,keygen,link,mata,param,source,wbr.这种空元素的标签（也就是首尾标签之间没有任何元素的标签）不允许将开始标签和结束标签分开定义，不允许写成这样< img src="git.png" alt="a">< /img>
+	而应该写成如下形式 < img src="git.png" alt="git"/>
+  
+37. h5中允许省略属性值的属性，应为他们的属性值就只有自己一个选项，如checked,readonly,disabled,selected,defer,ismap,nohref,noshade,nowrap,multiple,
+noresize。
+
+38. h5中的< bdo>定义了文本的显示方向，ltr代表从左到右，rtl表示从右到左。
+
+39.  
+
 ![](http://i.imgur.com/JKSyjRB.png)
 
    网页主要由3个部分组成：结构（Structure）,表现（Presentation）和行为（Behavior），“结构”决定了网页是什么；“表现”决定了网页看起来是什么样子；“行为”决定了网页做什么。不严谨地说，“结构”、“表现”、“行为”分别对应三种技术，即(x)html、CSS、JavaScript，也就是说，(x)html用来决定网页的结构和内容，CSS用来设定网页的表现形式JavaScript用来控制网页的行为。三者关系如图1.4所示。
