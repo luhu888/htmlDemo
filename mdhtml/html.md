@@ -132,6 +132,11 @@ noresize。
 
 49. designMode属性相当于一个全局contentEditable属性，如果整个页面的designMode属性设置为on时，该页面所有支持contentEditable属性的元素都变成可编辑状态，该属性默认为off。
 
+50. hidden属性：h5为所有元素都提供了一个hidden属性，一旦把某个html元素的hidden设为true，就意味着浏览器不显示该组件，浏览器也不会保留该组件所占用的内存。
+
+51.   
+
+
 
 
 
