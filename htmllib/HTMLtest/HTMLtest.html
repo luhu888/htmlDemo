@@ -9,8 +9,25 @@
 <b><i><font color=gray face="宋体" size="+2">html,I'm coming!设置文字颜色！这是灰色加粗斜体文字 
 </font></i></b>
 	  <center>
-	  <a href="picture/git.png" target="_blank"><img align="middle" src="picture/git.png" alt="git.png" width="256" height="256" border="0"/></a><a href="git.png" target="_blank"></a>
-	  <p contentEditable="true">网页也可以图文并茂！</p>    <!-- 华丽的注释标记-->
+	  <a draggable="true" id="source" href="picture/git.png" target="_blank"><img align="middle" src="picture/git.png" alt="git.png" width="256"
+                     height="256" border="0"/></a><a href="git.png" target="_blank"></a>
+	  <script type="text/javascript">
+          var source = document.getElementById("source");
+          source.ondragstart = function(evt)
+          {
+              evt.dataTransfer.setData("text/plain","picture/git.png")
+          };
+          document.ondragover = function(evt)
+          {
+              return false;
+          };
+          document.ondrop = function(evt)
+          {
+              return false;
+          }
+
+      </script>
+	   <p contentEditable="true">网页也可以图文并茂！</p>    <!-- 华丽的注释标记-->
 	  </center>
 	  <h2 align="left">互联网发展的起源</h2>
 	  <h3>第一阶段（这是h3号标题）</h3>
@@ -56,12 +73,59 @@
 		 </center>
 		 
 		 <center><p>世界地图</p></center>
-    
+		当前车速是<meter value="120" min="0" max="220" low="0" high="160">120</meter>km/h.<br/>
+		任务完成进度比：<progress value="30" max="100">30/100</progress>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		 <p align="right">&nbsp;</p>
 		 <div align="right"></div>
 		   <!--_blank属性表示在新窗口中打开链接-->
            <div align="right">&copy;<a href="link/QQLink.html" target="_blank">1012587896@qq.com</a></div>
 	       <div align="right"><strong><u><a href="#dingbu">返回顶部</a></u></strong></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	</body>
 	
