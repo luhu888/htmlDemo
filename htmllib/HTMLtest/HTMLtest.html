@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
@@ -6,8 +7,7 @@
 	</head>
 	<body text="#bbbbbb" bgcolor="#222222" ondblclick="document.designMode='off';">    <!--设置body背景色和字色-->
 	  <h1><a name="dingbu">HTML小Demo（这是h1号标题）</a></h1>
-<b><i><font color=gray face="宋体" size="+2">html,I'm coming!设置文字颜色！这是灰色加粗斜体文字 
-</font></i></b>
+    <b><i><font color=gray face="宋体" size="+2">html,I'm coming!设置文字颜色！这是灰色加粗斜体文字</font></i></b>
 	  <center>
 	  <a draggable="true" id="source" href="picture/git.png" target="_blank"><img align="middle" src="picture/git.png" alt="git.png" width="256"
                      height="256" border="0"/></a><a href="git.png" target="_blank"></a>
@@ -21,8 +21,6 @@
           {
               return false;
           };
-
-
       </script>
 	   <p contentEditable="true">网页也可以图文并茂！</p>    <!-- 华丽的注释标记-->
 	  </center>
@@ -83,26 +81,69 @@
     <form action="HTMLtest.html" method="post">
         <button type="button"><b>提交</b></button><br/>
        <button type="submit"><img alt="git.png" src="picture/git.png" height="64" width="64"/></button><br/>
+    </form><br/><br/><br/><br/><br/><br/>
+    <form action="HTMLtest.html" method="post">  <!--列表框和下拉菜单-->
+        下面是简单下拉菜单：<br/>
+        <select id="skills" name="skills">
+            <option value="java">Java语言</option>
+            <option value="c">C语言</option>
+            <option value="ruby">Ruby语言</option>
+        </select><br/> <br/> <br/> <br/>
+
+            下面是允许多选的列表框：<br/>
+        <select id="books" name="books" multiple="multiple" size="4">
+            <option value="java">Java实战</option>
+            <option value="android">Android实战</option>
+            <option value="python">Python实战</option>
+            <option value="c">c实战</option>
+        </select><br/> <br/> <br/> <br/> <br/>
+
+        下面是允许多选的列表框：<br/>
+        <select id="luhu" name="luhu" multiple="multiple" size="6">
+            <optgroup label="魔法图书">
+                <option value="java">java项目实战</option>
+                <option value="python">python项目实战</option>
+                <option value="android">android项目实战</option>
+            </optgroup>
+            <optgroup label="实战图书">
+                <option value="luhu">权威指南</option>
+                <option value="haha">疯狂讲义</option>
+                <option value="hehe">渗透测试</option>
+            </optgroup>
+        </select><br/>
+        <button type="submit"><b>提交</b></button>
+        </form>
+
+    <form action="HTMLtest.html" method="post">   <!--cols表示文本域的宽度，rows表示文本域的高度-->
+        简单多行文本域：<br/>
+        <textarea rows="20" cols="80"></textarea><br/>
+        只读多行文本域：<br/>
+        <textarea rows="20" cols="80" readonly>哈哈哈哈，疯狂Java讲义，这里是只读多行文本
+只能读，不能改，哈哈哈哈</textarea>
     </form>
+    <br/>
+    <form id="LuHu" action="add">
+        物品名：<input type="text" name="name"/>
+        <input type="submit" value="添加"/>
+    </form><br/>
+    物品描述：<textarea rows="5" cols="30" name="desc" form="LuHu"></textarea>
+    <br/>
+    <form method="post">
+        用户名：<input type="text" name="name" placeholder="请输入用户名"/><br/>
+        密码：　<input type="password" name="123456" placeholder="请输入密码"/><br/>
+        <input type="submit" value="注册" formaction="regist"/>
+        <input type="submit" value="登录" formaction="login"/>
+    </form><br/>
+        <form method="post" action="buy">
+            请输入书名：<input type="text" name="name" list="books"/><br/>
+            <input type="submit" value="购买"/>
+        </form>
+    <datalist id="books">    <!--chorme暂时还不支持该属性-->
+        <option value="java">java实战</option>
+        <option value="python">python实战</option>
+        <option value="android">android实战</option>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </datalist>
 
 
 
@@ -121,21 +162,7 @@
            <div align="right">&copy;<a href="link/QQLink.html" target="_blank">1012587896@qq.com</a></div>
 	       <div align="right"><strong><u><a href="#dingbu">返回顶部</a></u></strong></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</body>
+    </body>
 	
 	
 	
