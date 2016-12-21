@@ -21,10 +21,7 @@
           {
               return false;
           };
-          document.ondrop = function(evt)
-          {
-              return false;
-          }
+
 
       </script>
 	   <p contentEditable="true">网页也可以图文并茂！</p>    <!-- 华丽的注释标记-->
@@ -75,7 +72,18 @@
 		 <center><p>世界地图</p></center>
 		当前车速是<meter value="120" min="0" max="220" low="0" high="160">120</meter>km/h.<br/>
 		任务完成进度比：<progress value="30" max="100">30/100</progress>
-
+    <form action="HTMLtest.html" method="post">
+        <label for="username">单行文本框：</label><!--显示关联表单控件-->
+        <input id="username" name="username" type="text"/><br/>
+        <label>
+            密码框：　　 <input id="password" name="password" type="password"/><!--隐式关联表单控件-->
+        </label><br/>
+        <input id="ok" type="submit" value="登录"/>
+    </form>
+    <form action="HTMLtest.html" method="post">
+        <button type="button"><b>提交</b></button><br/>
+       <button type="submit"><img alt="git.png" src="picture/git.png" height="64" width="64"/></button><br/>
+    </form>
 
 
 
