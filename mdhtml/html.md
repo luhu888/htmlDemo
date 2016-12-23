@@ -266,7 +266,9 @@ noresize。
 			max：指定该拖动条的最大值；
 			step：指定拖动条的步长。
 		search：让< input>元素生成一个专门搜索关键字的文本框，这种类型的文本框与“type=text”的文本框并没有太大区别。
-	< output>元素用于显示输出，比如计算结果或脚本的输出，< output>元素除了可以指定id，style，class，
+	< output>元素用于显示输出，比如计算结果或脚本的输出，所以必须定义在表单< form>内或指定form属性，< output>元素除了可以指定id，style，class，form等元素外，还指定了for属性：
+		该属性指定该元素将会显示那个元素的值，该属性的值应该是其他元素的id
+
 
 
 

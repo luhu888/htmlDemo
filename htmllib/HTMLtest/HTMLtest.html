@@ -5,10 +5,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 		<title>卢虎的个人网站</title>
 	</head>
-	<body text="#bbbbbb" bgcolor="#222222" ondblclick="document.designMode='off';">    <!--设置body背景色和字色-->
+	<center text="#bbbbbb" bgcolor="#222222" ondblclick="document.designMode='off';">    <!--设置body背景色和字色-->
 	  <h1><a name="dingbu">HTML小Demo（这是h1号标题）</a></h1>
     <b><i><font color=gray face="宋体" size="+2">html,I'm coming!设置文字颜色！这是灰色加粗斜体文字</font></i></b>
-	  <center>
+	  </center>
 	  <a draggable="true" id="source" href="picture/git.png" target="_blank"><img align="middle" src="picture/git.png" alt="git.png" width="256"
                      height="256" border="0"/></a><a href="git.png" target="_blank"></a>
 	  <script type="text/javascript">
@@ -57,7 +57,7 @@
 	 <p><button onclick="var target=document.getElementById('target');
 			target.hidden=!target.hidden;">显示/隐藏文本框</button></p>
 		 <p>
-		 x&lt;y   a&gt;b  Z&lowast;m	　　　　　　　　　2H<sub>2</sub> + O<sub>2</sub> &hArr;<sup>点燃</sup> 2H<sub>2</sub>O </p>
+		 x&lt;y   a&gt;b  Z&lowast;m　　　2H<sub>2</sub> + O<sub>2</sub> &hArr;<sup>点燃</sup> 2H<sub>2</sub>O </p>
 		 <code></code>
 		 <center><p><img src="picture/map.jpg" alt="map.jpg" width="453" height="340" border="0" usemap="#Map1" />
 		     <map name="Map1" id="Map1">
@@ -67,7 +67,7 @@
 	       </img></p>
 		 </center>
 		 
-		 <center><p>世界地图</p></center>
+		 <center><p>世界地图</p> </center>
 		当前车速是<meter value="120" min="0" max="220" low="0" high="160">120</meter>km/h.<br/>
 		任务完成进度比：<progress value="30" max="100">30/100</progress>
     <form action="HTMLtest.html" method="post">
@@ -145,13 +145,15 @@
 
     </datalist><br/>
     <form action="do">
-        type="color"的文本框：<br/><input name="color" type="color"/><br/><br/>
+        type="color"的文本框：<br/><input id="color" name="color" type="color"/>
+        <output name="a" for="color" onforminput="innerHTML=color.value;"></output><br/><br/>
         type="date"的文本框：<br/><input name="date" type="date"/><br/><br/>
         type="time"的文本框：<br/><input name="time" type="time"/><br/><br/>
         type="week"的文本框：<br/><input name="week" type="week"/><br/><br/>
-        type="range"的文本框：<br/><input name="range" type="range" min="0" max="100" step="10"/><br/><br/>
+        type="range"的文本框：<br/><input name="range" type="range" min="0" max="100" step="10"/>
+        <output name="b" for="range" onforminput="innerHTML=range.value;"></output><br/><br/>
     </form>
-
+     <center> <img alt="home" src="picture/家族树状图.pdf" height="1024" width="990"></center>
 
 
 
