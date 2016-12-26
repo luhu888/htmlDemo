@@ -267,7 +267,110 @@ noresize。
 			step：指定拖动条的步长。
 		search：让< input>元素生成一个专门搜索关键字的文本框，这种类型的文本框与“type=text”的文本框并没有太大区别。
 	< output>元素用于显示输出，比如计算结果或脚本的输出，所以必须定义在表单< form>内或指定form属性，< output>元素除了可以指定id，style，class，form等元素外，还指定了for属性：
-		该属性指定该元素将会显示那个元素的值，该属性的值应该是其他元素的id
+		该属性指定该元素将会显示那个元素的值，该属性的值应该是其他元素的id。
+
+61. h5增强的文件上传域
+    File对象和FileList对象，h5为type的< input>元素增加了如下两个属性。
+	accept该属性控制允许上传的文件类型。该属性值为一个或多个MIME类型字符串，多个MIME类型字符串之间应以逗号分隔。
+	multiple该属性是否允许选择多个文件。
+	JavaScript可以通过files属性访问type=“file”的< input>元素生成的文件上传域内的所有文件，该属性返回一个FileList对象，FileList对象相当于一个数组，开发者可以使用类似数组的方法来访问该数组内的每个File对象。
+	File对象是一个JavaScript对象，JavaScript可以通过该对象获取用户浏览的所有文件的信息，file对象包含如下常用属性：
+		name返回该File对象对应的文件的文件名，不包括文件路径部分。
+		type返回该File对象对应的文件的MIME类型字符串。
+		size返回该File对象对应的文件的大小。
+	使用FileReader读取文件内容，FileReader同样是一个JavaScript对象，开发者可以通过该对象在客户端读取文件上传域所选择的文件内容，FileReader提供了如下方法：
+		readAsTest（file，encoding）以文本文件的方式来读取该文件，其中encoding参数指定读取文件时所用的字符集，该参数的默认值是UTF-8，
+		readAsBinaryString（file）：以二进制方式来读取该文件，通过这种方式可以读取文件的二进制数据，这样就可以通过Ajax把数据上传到服务器，
+		readAsDataURL（file）以DataURL方式来读取文件，这种方式也可用于读取二进制文件，只是这种方式将会采用base64方式把文件内容编码成DataURL格式的字符串，
+		abort（）停止读取，
+	同时需要指出的是，FileReader的所有readXxx（）方法都是异步方法，这些方法都不会直接返回读取的结果，FileReader提供了如下事件来监听读取过程：
+		onloadstart：FileReader开始读取数据时触发该事件指定的函数，
+		onprogress：FileReader正在读取数据时触发该事件指定的函数，
+		onload：FileReader成功读取数据后触发该属性事件的函数，
+		onloadend：FileReader读取数据完成后的处罚该事件指定的函数，无论读取成功与否，都将触发该事件指定的函数，
+		onerror：FileReader读取失败时触发该事件指定的函数。
+
+62. h5新增的客户端校验，在h5规范之前，客户端校验只能通过JavaScript来完成，h5改变了这种现状，h5为表单控件额外增加了一些输入校验属性，h5页面只要简单地设置这些校验属性即可完成客户端校验。h5为表单控件新增了如下几个校验属性：
+	required该属性指定该表单控件必须填写，该属性的值必须是required或完全省略属性值。
+	pattern该属性指定该表单控件的值必须符合指定的正则表达式，该属性值必须是一个合法的正则表达式，
+	min，max，step这三个属性只对数值类型，日期类型的< input>元素有效，这3个属性控制该表单控件的值必须在min~max之间，并符合step步长。
+
+63. h5的绘图支持，使用canvas元素，h5新增一个< canvas>元素，该元素专门用于绘制图形，但实际上canvas元素自身并不绘制图形，他只是相当于一张空画布，如果开发者需要向canvas上绘制图形，则必须使用JavaScript脚本进行绘制。（略，关于JavaScript，后面再看）
+
+64. h5的多媒体支持，使用audio和video元素，在h5页面上使用< video>和< audio>元素并不复杂，和使用< img>等HTML元素并无太大区别，而且两者的属性绝大部分都是通用的，audio，video支持的属性如下所示：
+	src指定播放音频，视频的URL地址，
+	autoplay该属性要么是autoplay，要么完全省略属性值，如果指定了该属性，那么当音频，视频装载完成后会自动播放，
+	controls该属性值要么是controls，要么完全省略属性值，如果指定了该属性，播放音频，视频时则显示播放控制条，
+	loop该属性值要么是loop，要么完全省略该属性值，如果指定了该属性值，音频，视频播放完后会再次重复播放，
+	preload该属性指定是否预加载音频，视频，该属性支持以下几个属性值：
+		auto预加载音频，视频，
+		metadata，只预加载音频视频的元数据，如媒体字节数，第一帧，播放列表，持续时间等，
+		none，不执行预加载。
+	如果指定了autoplay属性，该属性将会被忽略。
+	poster该属性只对< video>元素有效，该属性指定一张图片的URL，当在视频下载完成，开始播放之前，该元素将会显示该元素所指定的图片
+	width，height该属性只对< video>元素有效，指定视频播放器的宽度和高度。
+	下表列出了个浏览器对各种音频的支持情况： <!--冒号表示居中-->
+
+		
+		|音频格式       |Internet Explorer9|Firefox|Opera|Chrome|
+		| :----------: | :---------------: | :---: | :-: | :--: |             
+		|WAV格式（*.wav） | 支持            |支持   |支持 |支持  |
+		|MP3              |支持            |不支持 |不支持|支持  |
+        |OGG Vobis        |不支持          |支持   |支持  |支持  |
+
+		|视频格式       |Internet Explorer9|Firefox|Opera|Chrome|
+        | :----------: | :---------------: | :---: | :-: | :--: |  
+        |OGG Theora    |不支持             |支持   |支持 |支持   |
+        |H.264         |支持               |不支持 |不支持|支持  |
+        |VP8           |支持               |支持   |支持  |支持  |
+	考虑到各浏览器对音频，视频的支持互不相同，开发者可能希望为< audio>,< video>元素指定多个媒体源，此时就可以借助于< source>子元素来实现，< soure>元素可指定如下两个重要属性：
+		src该属性指定音频，视频文件的URL，
+		type该属性指定音频，视频文件的类型，该属性的值既可以是简单的MIME字符串，例如audio/ogg,audio/mpeg等，也可以是MIME字符串并带codecs属性，codecs属性用于指定该视频文件的编码格式，例如可以指定为audio/ogg；codecs=‘vobis’。通常来说，指定codecs属性可以提供更多信息，更便于浏览器判断是否能播放此种类型的音频，视频。
+
+65. HTMLAudioElement与HTMLVideoElement的属性，当调用HTMLAudioElement，HTMLVideoElement的方法播放媒体后，JavaScript脚本可能还需要通过他们的属性来了解其状态。HTMLAudioElement与HTMLVideoElement的属性如下所示：
+	buffered只读属性，该属性将会返回一个TimeRanges对象，通过该对象可以获取浏览器已经缓存的媒体数据
+	currentSrc只读属性，该属性返回播放器正在播放的音频，视频文件的URL地址，
+	currentTime非只读属性，该属性返回正在播放音频，视频当前所处的时间点，该属性的返回值以秒为单位，
+	defaultPlaybackRate非只读属性，该属性返回的HTMLAudioElement或HTMLVideoElement对象默认的播放速度，JavaScript脚本可通过修改该属性来改变他们默认的播放速度，
+	duration可读属性，该属性返回音频或视频的持续时间，该返回值以秒为单位，
+	ended可读属性，该属性返回一个boolean值，当播放结束时该属性值返回true，否则返回false
+	error可读属性，该属性在读取及播放音频，视频正常的情况下，该属性返回null，但无论在任何时候只要出现了错误，该属性将会返回一个MediaError对象，该对象的code属性代表错误状态，可能出现以下4中错误状态：
+		MEDIA_ERR_ABORTED（数值1），媒体下载被终止，
+		MEDIA_ERR_NETWORK（数值2），下载媒体资源时由于网络原因被中断，
+		MEDIA_ERR_DECODE（数值3），媒体资源下载完成，但尝试对媒体解码时出现错误，
+		MEDIA_ERR_SRC_NOT_SUPPORTED（数值4），媒体资源不可用或当前浏览器不支持该媒体格式。
+	muted非只读属性，该属性返回播放器是否处于静音状态，返回true表示处于静音状态，JavaScript脚本可通过修改该属性来改变播放器的静音设置。
+	networkState只读属性，该属性可获得下载音频，视频的网络状态，该属性有如下4个值：
+		NETWORK_EMPTY（数值0），处于初始状态，
+		NETWORK_IDLE（数值1），处于空闲状态，还未建立网络连接，
+		NETWORK_LOADING（数值2），正在加载音频，视频资源，
+		NETWORK_NO_SOURCE（数值3），媒体资源不可用或当前浏览器不支持该媒体格式，不执行加载，
+	pause可读属性，该属性返回一个boolean值，true表示播放器处于暂停状态，否则返回false
+	playbackRate非只读属性，该属性返回HTMLAudioElement或HTMLVideoElement对象当前的播放速度，JavaScript脚本可通过修改该属性来改变当前的播放速度，
+	played可读属性，该属性返回一个timeRanges对象，通过该对象即可获取音频，视频的已播放部分的时间段，开始时间为已播部分的开始时间，结束时间为已播部分的结束时间，
+	readyState可读属性，该属性返回当前音频，视频的准备状态，该属性可能返回如下几个属性值：
+		HAVE_NOTHING（数值0），还没有得到音频，视频的任何数据，
+		HAVE_METADATA（数值1），已获取到音频，视频的元数据，但还没获取到媒体数据，还不能播放，
+		HAVE_CURRENT_DATA，（数值2），已经获取到当前播放位置的媒体数据，但还没获取到继续播放的媒体数据，对于视频来说就是获取了当前帧的媒体数据，但还没有下一帧的数据，或者当前帧已是最后一帧，
+		HAVE_FUTRUE_DATA（数值3），已经获取了当前播放位置的媒体数据，也获取了下一个播放位置的播放数据，如果当前正处于最后一帧，readState属性不会返回HAVE_FUTURE_DATA
+		HAVE_ENOUGH_DATA（数值4），已经获取了足够的媒体数据，播放器可以顺利的向下播放。
+	seekable可读属性，该属性返回一个TimeRanges对象，通过该对象可获取音频，视频可定位的时间段，一般来说，可定位的结束时间就是该音频，视频的结束时间，
+	seeking可读属性，该属性返回播放器是否正在尝试定位到指定时间点，返回true表示播放器正在定位，否则返回false，
+	startTime可读属性，该属性返回播放器播放音频，视频的开始时间，该属性通常返回0
+	volume非可读属性，该属性返回播放器的音量，JavaScript脚本可通过修改该属性来改变播放器的音量。
+	
+
+
+
+
+
+
+
+
+        
+
+
+
 
 
 
@@ -285,7 +388,7 @@ noresize。
 
 
 
-![](http://i.imgur.com/JKSyjRB.png)
+
 
    网页主要由3个部分组成：结构（Structure）,表现（Presentation）和行为（Behavior），“结构”决定了网页是什么；“表现”决定了网页看起来是什么样子；“行为”决定了网页做什么。不严谨地说，“结构”、“表现”、“行为”分别对应三种技术，即(x)html、CSS、JavaScript，也就是说，(x)html用来决定网页的结构和内容，CSS用来设定网页的表现形式JavaScript用来控制网页的行为。三者关系如图1.4所示。
 ![](http://i.imgur.com/FULMmBa.png)
