@@ -373,23 +373,135 @@ noresize。
 			@import "outer.css";
 			@import url("mycss.css");
 		< /style>
-	使用内部样式定义：这种方式是通过在html文档头定义样式单部分来实现的，在这种方式下，每批CSS样式只控制一份文档一般不建议使用，< style type="text/css">
-		样式单文件定义
-	< /style> 
+	使用内部样式定义：这种方式是通过在html文档头定义样式单部分来实现的，在这种方式下，每批CSS样式只控制一份文档一般不建议使用，
+	    < style type="text/css">
+			样式单文件定义
+		< /style> 
 	使用内联样式：这种方式将样式内联定义到具体的html元素，通常用于精确控制一个html元素的表现，在这种方式下，每份CSS样式单只控制单个html元素,为了使用内联样式，CSS扩展了html元素，几乎所有的html元素都增加了一个style通用属性，该属性是一个或多个CSS样式定义，多个CSS样式定义之间以英文分号隔开，简单的说，使用内联样式定义时，style属性值就是由一个或多个property：value组成的，此处的property：value与前面的CSS样式单文件中的完全相同：
 		style="property1:value1;property2:value2..."
 2. CSS选择器，除了内联样式外，定义CSS样式的语法总遵循如下格式:
-	Selector {
-		property1:value1
-	}
+		Selector {
+			property1:value1
+		}
 上面语法格式可分为两个部分：
 	Selector（选择器）：选择器决定该样式定义对哪些元素起作用，
 	{property1：value1；property2：value2}（属性定义）：属性定义部分决定这些样式起怎样的作用（字体，颜色，布局等）
 所以从上面可以看出，学习CSS大致需要两个部分内容：掌握选择器的定义方法，掌握各种CSS属性的定义。
+	元素选择器就是最简单的选择器，其语法格式如下：
+		E{...}/*其中E代表有效的html元素名*/
+	属性选择器，从广义上来看，元素选择器其实就是属性选择器的特例，属性选择器一共有如下几种语法格式：
+		E{...}指定该CSS样式对所有E元素起作用，
+		E[attr]{...}指定该CSS样式对具有attr属性的E元素起作用，
+		E[attr=value]{...}指定该CSS样式对所有包含attr属性，且attr属性为value的E元素起作用。
+		E[attr～=value]{...}指定该CSS样式对所有包含attr属性，且attr属性的值为以空格隔开的系列值，其中某个值为value的E元素起作用，
+		E[attr|=value]{...}指定该CSS样式对所有包含attr属性，且attr属性的值为以连字符分隔得系列值，其中第一个值为value的tag元素起作用，
+		E[att^="value"]{.....}指定该CSS样式对所有包含attr属性，且attr属性的值为以value开头的字符串的E元素起作用，
+		E[att$="value"]{.....}指定该CSS样式对所有包含attr属性，且attr属性的值为以value结尾的字符串的E元素起作用，
+		E[att*="value"]{.....}指定该CSS样式对所有包含attr属性，且attr属性的值为包含value的字符串的E元素起作用。
+	上面几个选择匹配规则越严格优先级越高，同时上面几个属性选择器并没有的到所有浏览器的广泛支持，只有第一种形式可以在所有浏览器中运行良好。
+	ID选择器指定CSS样式将会对具体指定id属性值的html元素起作用，ID选择器的语法格式如下：
+		#idValue {...}
+	上面语法指定该CSS样式对id为idValue的html元素起作用。
+	仅对指定元素起作用的id选择器
+	定义仅对指定元素起作用的ID选择器的语法格式如下：
+		E#idValue {...} /*其中E是有效的html元素*/
+	该语法指定该CSS样式对id为idValue的E元素起作用。
+	class选择器指定CSS样式对具体指定class属性的元素起作用，class选择器的语法格式如下：
+		[E],classValue {.....}/*其中E是有效的html元素*/
+	指定该CSS定义对class是属性值为classValue的E元素起作用。此处的E可以省略，如果省略E，则指定该CSS对所有的class属性为classValue的元素都起作用。
+	包含选择器用于指定目标选择器必须处于某个选择器对应的元素内部，器语法格式如下：
+		Selector1 Selector2 {...} /*其中Selector1 Selector2都是有效的选择器*/
+	子选择器用于指定目标选择器必须是某个选择器对应的元素的子元素，子选择器的语法格式如下：
+		Selector1>Selector2 {....}/*其中Selector1，Selector2都是有效的选择器*/
+	包含选择器与子选择器有点类似，他们之间存在如下区别：对于包含选择器，只要目标选择器位于外部选择器对应的元素内部，即使是其“孙子元素”也可；对于子选择器，要求目标选择器必须作为外部选择器对应的元素的直接子元素才行。
+	CSS3新增的兄弟选择器的语法如下：
+		Selector1～Selector2 {.....} /*其中Selector1，Selector2都是有效的选择器*/
+	兄弟选择器匹配与Selector1对应的元素后面，能匹配Selector2的兄弟节点。
+	选择器组合有些时候我们需要一份CSS样式对多个选择器起作用，那就可以利用选择器组合来实现了，选择器组合的语法如下所示：
+		Selector1，Selector2，Selector3...{...}/*其中Sekector1，Selector2，Selector3都是有效的选择器*/
+	对于组合选择器来说，{}中定义的CSS样式将会对面前所列出的所有选择器匹配的元素起作用。
+3. 伪元素选择器
+	伪元素选择器并不是针对真正的元素使用的选择器，伪元素选择器只能针对CSS中已有的伪元素起作用，CSS提供的伪元素选择器有如下几个：
+		first-letter该选择器对应的CSS样式对指定对象的第一个字符起作用，
+		first-line该选择器对应的CSS样式对指定对象的第一行内容起作用，
+		before该选择器与内容相关的属性结合使用，用于在指定对象内部的前端插入内容，
+		after该选择器与内容相关的属性结合使用，用于指定对象内部的尾端添加内容。
+	内容相关的属性，此处介绍的内容相关的属性与前面用过的color，font-size等CSS属性的本质是相同的，这些内容相关的属性同样需要定义在CSS样式的花括号({})里面。CSS支持的内容相关的属性有如下几个：
+		include-source该属性的值应为url（url）,插入绝对或相对URL地址所对应的文档，目前还没有浏览器支持。
+		content该属性的值可是字符串，url(url),attr(alt),counter(name),counter(name,list-style-type),open-quote,close-quote等格式，该属性用于向指定元素之前或之后插入指定内容。
+		quotes该属性用于为content属性定义open-quote和close-quote，该属性的值可以是两个以空格分隔的字符串，其中前面的字符串是open-quote，后面的字符串是close-quote
+		counter-increment该属性用于定义一个计数器，该属性的值就是所定义的计数器的名称，
+		counter-reset该属性用于对指定的计数值复位。
+	插入图像，content属性的值除了支持普通字符串之外，还可以使用url（url）格式的值，这种格式的值可以用于插入图像。
+	使用自定义编号，CSS默认编号为数值编号，这种编号能满足绝大部分的应用场景，但有些时候还需要自定义编号，这种需求可通过counter（name，list-style-type）指定编码风格，该参数支持如下值：
+		decimal：阿拉伯数字，默认值，
+		disc:实心圆
+		circle：空心圆
+		square：实心方块
+		lower-roman:小写罗马数字
+		upper-roman：大写罗马数字
+		lower-alpha：小写英文字母
+		upper-alpha：大写英文字母
+		none：不使用项目符号
+		cjk-ideographic：浅白的表意数字
+		georgian：传统的乔治数字
+		lower-greek:基本的希腊小写字母
+		hebrew：传统的希伯来数字
+		hiragana:日文平假名字符
+		hiragana-iroha:日文平假名序号
+		katakana：日文片假名字符
+		katakana-iroha：日文片假名序号
+		lower-latin：小写拉丁字母
+		upper-latin：大写拉丁字母
+4. CSS3新增的伪类选择器
+	伪类选择器与前面介绍的伪元素选择器有些相似，伪类选择器主要用于对已有选择器做进一步的限制，对已有选择器能匹配的元素做进一步的过滤，CSS3提供的伪类选择器主要分为如下三类：
+		结构性伪类选择器，结构性伪类选择器指的是根据html元素之间的结构关键进行筛选的伪类选择器，结构性伪类选择器有如下几个：
+			Selector：root：匹配文档的根元素，在html文档中，根元素永远是< html>
+			Selector:first-child:匹配符合Selector选择器，而且必须是其父元素的第一个子节点的元素，
+			Selector：last-child:匹配符合Selector选择器，而且必须是其父元素的最后一个子节点的元素，
+			Selector：nth-child(n):匹配符合Selector选择器，而且必须是其父元素的第n个子节点的元素，
+			Selector：nth-last-child（n）：匹配符合Selector选择器，而且必须是其父元素的倒数第n个子节点的元素，
+			Selector：only-child:匹配符合Selector选择器，而且必须是其父元素的唯一子节点的元素，
+			Selector：first-of-type:要求匹配符合Selector选择器，而且是与他同类型，同级的兄弟元素中的第一个元素，
+			Selector：last-of-type：要求匹配符合Selector选择器，而且是与他同类型，同级的兄弟元素中的最后一个元素，
+			Selector：nth-of-type(n)：要求匹配符合Selector选择器，而且是与他同类型，同级的兄弟元素中的第n个元素，
+			Selector：nth-last-of-type(n)：要求匹配符合Selector选择器，而且是与他同类型，同级的兄弟中的倒数第n个元素，
+			Selector：only-of-type：要求匹配符合Selector选择器，而且是与他同类型，同级的兄弟元素中的唯一一个元素，
+			Selector：empty：匹配符合Selector选择器，而且其内部没有任何子元素（包括文本节点）的元素。
+		对于：nth-child，nth-last-child两个伪选择器，他们的功能不止于此，还支持如下的语法：
+			Selector:nth-child(odd/event):匹配符合Selector选择器，而且必须是其父元素的第奇数/偶数个子节点的元素，
+			Selector：nth-last-child（odd/event）：匹配符合Selector选择器，而且必须是其父元素的倒数第奇数/偶数个子节点的元素，
+			Selector：nth-child（xn+y）：匹配符合Selector选择器，而且必须是其父元素的第xn+y个子节点的元素，
+			Selector：nth-last-child（xn+y）;匹配符合Selector选择器，而且必须是其父元素的倒数第xn+y个子节点的元素。
+		与：nth-child，：ntd-last-child类似，：nth-of-type，：nth-of-last-type同样支持如下几种用法：
+			Selector：nth-of-type(odd/event)：匹配符合Selector选择器，而且必须是与其同类型，同级元素的第奇数/偶数个元素，
+			Selector:nth-last-of-type(odd/event)：匹配符合Selector选择器，而且必须是与其同类型，同级元素的的倒数第奇数/偶数个元素，
+			Selector:nth-of-type(xn+y):匹配符合Selector选择器，而且必须是与其同类型，同级元素的第xn+y个元素，
+			Selector：nth-last-of-type（xn+y）：匹配符合Selector选择器，而且必须是与其同类型，同级元素的倒数第xn+y个元素。
+	UI元素状态伪类选择器主要用于根据UI元素的状态进行筛选，UI元素状态伪类选择器有如下几个：
+		Selector：link：匹配Selector选择器且未被访问前的元素（通常只能是超链接），
+		Selector:visited:匹配Selector选择器且已被访问过的元素（通常只能是超链接），
+		Selector:active:匹配Selector选择器且处于被用户激活（在鼠标点击与释放之间的事件）状态的元素，
+		Selector：hover：匹配Selector选择器且处于鼠标悬停状态的元素，
+		Selector：focus:匹配Selector选择器且已得到焦点的元素，
+		Selector：enabled：匹配Selector选择器且当前处于可用状态的元素，
+		Selector：disabled：匹配Selector选择器且当前处于不可用状态的元素，
+		Selector：checked：匹配Selector选择器且处于选中状态的元素，
+		Selector：default：匹配Selector选择器且页面打开时处于选中状态（即使当前没有被选中亦可）的元素，
+		Selector：read-only：匹配Selector选择器且处于只读状态的元素，
+		Selector：read-write：匹配Selector选择器且处于读写状态的元素，
+		Selector：selection：匹配Selector选择器的元素中当前被选中的内容。
+	其他伪类选择器，如浏览器专属的属性，有些时候，某些CSS属性还只是最新版的预览版，并未发布成最终正式版，而大部分浏览器已经为这些属性提供了支持，但这些属性是小部分浏览器专有的，有些时候，有些浏览器为了扩展某方面的功能，他们会选择新增一些CSS属性，这些自行扩展的CSS属性也是浏览器专有的，为了让这些浏览器识别这些专属属性，CSS规范了允许在CSS属性钱增加各自的浏览器前缀，常见的浏览器前缀如下表所示：
 
-
-
-
+	![](http://i.imgur.com/BViCrlb.png)
+	CSS3还新增了两个特殊的伪类选择器:not和:target：
+		Selector：target:匹配符合Selector选择器且必须是命名锚点目标的元素，而且是正在访问的目标，网页可通过该选择器高亮显示正在被访问的目标，
+		Selector1：not（Selector2）：匹配符合Selector1选择器，但不符合Selector2选择器的元素，相当于用Selector1减去Selector2
+	在脚本中修改显示样式（关于JavaScript的，后面再看）
+5. 字体与文本相关属性
+	字体相关属性，CSS为控制文本的字体提供了大量属性，这些字体相关属性主要用于控制文本的字体颜色，修饰等外观，字体相关属性如下：
+		font：这是一个复合属性，其属性值是形如font-style font-variant font-weight font-size line-height font-family的复合属性值，使用font属性可同时控制文字的样式，字体粗细，字体大小，字体等属性，为了更具体地进行控制，通常不建议使用该属性。
+		color：该属性用于控制文字颜色，该属性的值可以是任何有效的颜色值，包括字符串类型的颜色名，十六进制的颜色值，或使用rgb（）函数设置的RGB值等，甚至包括CSS3提供的HSL颜色值等
 
 
 
