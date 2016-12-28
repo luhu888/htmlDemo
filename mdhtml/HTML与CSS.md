@@ -708,10 +708,11 @@ noresize。
 		block模型：这种盒模型的组件默认占据一行，允许通过CSS设置宽度，高度；
 		inline类型：这种盒模型的组件不会占据一行（默认允许在一行放置多个组件），即使通过CSS设置宽度，高度也不会起作用；
 		display属性可指定none值，用于设置目标对象隐藏，一旦该对象隐藏，其占用页面空间也会释放，与此类推的还有visibility属性，该属性也可用于设置目标对象是否显示，与display属性不同，当通过visibility隐藏某个html元素后，该元素占用的页面空间依然会被保留，visibility属性的两个常用值为visible和hidden，分别用于控制目标的显示和隐藏.
+	inline-block盒模型
 		
 			
 			
 
-
+      
 
 
