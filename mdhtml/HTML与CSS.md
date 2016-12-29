@@ -708,11 +708,146 @@ noresize。
 		block模型：这种盒模型的组件默认占据一行，允许通过CSS设置宽度，高度；
 		inline类型：这种盒模型的组件不会占据一行（默认允许在一行放置多个组件），即使通过CSS设置宽度，高度也不会起作用；
 		display属性可指定none值，用于设置目标对象隐藏，一旦该对象隐藏，其占用页面空间也会释放，与此类推的还有visibility属性，该属性也可用于设置目标对象是否显示，与display属性不同，当通过visibility隐藏某个html元素后，该元素占用的页面空间依然会被保留，visibility属性的两个常用值为visible和hidden，分别用于控制目标的显示和隐藏.
-	inline-block盒模型
+	inline-block盒模型：通过为display属性设置inline-block即可实现这种盒模型，这种盒模型是inline和block模型的综合体：inline-block盒模型的元素既不会占据一行，同时也支持通过width，height指定宽度和高度。通过使用inline-block盒模型可以方便地实现多个< div>元素的并列显示，也就是说，使用inline-block盒模型也可以实现前面介绍的多栏布局，在默认情况下，多个inline-block盒模型的组件将会采用底端对齐的方式，也就是他们的底部将会位于同一水平线上，这可能不是多栏布局期望的结果，为了让多个inline-block盒模型的组件在顶端对齐，为他们增加vertical-align：top；即可。
+	inline-table盒模型：在默认情况下，< table>元素属于block盒模型，也就是说，该元素默认占据一行：他的左边不允许出现其他内容，他的右边也不允许出现其他内容，该元素可以通过width，height设置宽度和高度。CSS为< table>元素提供了一个inline-table盒模型，这个盒模型允许表格通过width，height设置宽度和高度，而且允许他的左右边出现其他内容。为了控制表格与前后内容垂直对齐，可以通过添加vertical-align属性来实现，设置该属性为top，这表明让该表格与前后内容顶端对齐，设置该属性为bottom，这表明让该表格与前后内容底端对齐。
+	表格相关的盒模型，CSS3为display还提供了如下属性值：
+		table：将目标HTML组件显示为表格；
+		table-caption：将目标HTML组件显示为表格标题；
+		table-cell：将目标HTML组件显示为单元格；
+		table-column：将目标HTML组件显示为表格列；
+		table-column-group：将目标HTML组件显示为表格列组；
+		table-header-group：将目标HTML组件显示为表格头部分；
+		table-foot-group：将目标HTML组件显示为表格页脚部分；
+		table-row：将目标HTML组件显示为表格行；
+		table-row-group：将目标HTML组件显示为表格行组。
+	list-item盒模型可以将目标组件转换为类似于< ul>的列表元素，也可以同时在元素前面添加列表标志，如将多个< div>元素的display设置为list-item。
+	run-in盒模型有点类似于inline盒模型，run-in盒模型的组件希望显示在他后面的元素内部；如果run-in盒模型的组件后面紧跟一个block盒模型元素，那么run-in盒模型元素将被放入后面的元素中显示。
+	对盒添加阴影，CSS3增加了box-shadow属性为盒模型添加阴影，该属性可用于为整个盒模型添加阴影：
+		box-shadow属性可以为所有盒模型的元素整体添加阴影效果，这是一个复合属性，他包括如下五个值：
+			hOffset：该属性值控制阴影在水平方向上的偏移；
+			vOffset：该属性值控制阴影在垂直方向上的偏移；
+			blurLength：该属性值控制阴影的模糊程度；
+			scaleLength：该属性控制阴影的缩放程度；
+			color：该属性的值控制阴影的颜色。
+	CSS3的多栏布局：
+		columns：这是一个复合属性，通过该属性可同时指定栏目宽度，栏目数两个属性值，该属性相当于同时指定column-width，column-count属性；	
+		column-width：该属性指定一个长度值，用于指定每个栏目的宽度；
+		column-count：该属性指定一个长度值，用于指定每个栏目数；
+		column-rule：这是一个复合属性，用于指定各栏目之间的分隔条，该属性可同时指定分隔条的宽度，样式，颜色，该属性相当于同时指定column-rule-width，column-rule-style，column-rule-color属性。
+		column-rule-width：该属性指定一个长度值，用于指定栏目之间分隔条的宽度；
+		column-rule-style：该属性用于设置分隔条的线型，该属性支持的属性值有none，dotted，dashed，solid，double，groove，ridge，inset，outset，这些属性值与前面介绍的表示的意义完全相同。
+		column-rule-color：该属性用于设置分隔条的颜色，
+		column-gap：该属性指定一个长度值，用于指定各栏目之间的间距，
+		column-fill：该属性用于控制栏目的高度，该属性支持如下两个值：
+			auto：各栏目的高度随着其内容的多少自动变化，
+			balance：各栏目的高度将会统一成内容最多的那一栏的高度。
+	使用盒模型实现多栏布局，CSS3提供了一个box属性，通过该属性值可以更好地实现多栏布局，需要指出的是，主流浏览器目前暂不支持标准的box属性，因此实际使用时需要添加浏览器厂商的前缀。CSS3为box盒模型提供了如下属性：
+		box-orient：设置box盒模型里子元素的排列方向，该属性支持如下两个属性值：
+			horizontal：box盒模型里的子元素水平排列，如果没有为子元素指定高度，水平排列的box盒模型里的子元素的高度等于父容器的高度。
+			vertical：box盒模型里的子元素竖直排列，如果没有为子元素指定宽度，垂直排列的box盒模型的子元素的宽度等于父容器的宽度。
+		box-ordinal-group：设置box盒模型里子元素的显示顺序。
+		box-flex：设置box盒模型里子元素自适应宽度的比例。例如box盒模型多余的空白宽度为150px，其中第一个子元素设置box-flex为1，第二个子元素设置box-flex为2，那么多余的空白宽度将会分给第一个元素的宽度为150*1/(1+2)即50px，分给第二个子元素的宽度为150*2/(1+2)即100px。
+10. 表格，列表相关属性及media query
+	表格相关属性主要用于控制表格的外观，表格的相关属性如下：
+		border-collapse：用于设置表格里行和单元格边框的显示方式，该属性控制两个单元格的边框是合并在一起的，还是按照标准的HTML样式分开，该属性有两个值即seperate（边框分开，使得单元格的分割线为双线）和collapse（边框合并，使得单元格的分割线为单线）。
+		border-spacing：当设置border-collapse为seperate时，该属性用于设置两个单元格边框之间的间距。
+		caption-side:用于设置表格标题位于表格哪边，该属性必须和< caption>元素一起使用，该属性有4个值，即top，bottom，left，right。
+		empty-cells：该属性控制单元格内没有内容时，是否显示单元格边框，只有当border-collapse属性设置成seperate时，该属性才有效，该属性支持show和hide两个属性值。
+		table-layout：用于设置表格宽度布局的方法，该属性支持auto和fixed两个属性值，其中auto是默认值，也就是平时常见的表格布局方式，fixed则指定使用固定布局方式。
+	列表相关属性：
+		list-style：这是一个复合属性，使用该属性可以同时指定list-style-image，list-style-position，list-style-type三个属性。
+		list-style-image：该属性用于指定作为列表项标记的图片，
+		list-style-position：该属性用于指定列表项标记出现的位置，该属性支持outside（列表项标记放在列表元素之外）和inside（列表项标记放在列表元素之内）两个属性值。
+	list-style-type：该属性用指定列表项标记的样式,该属性支持如下的值：
+		decimal：阿拉伯数字，默认值，
+		disc:实心圆
+		circle：空心圆
+		square：实心方块
+		lower-roman:小写罗马数字
+		upper-roman：大写罗马数字
+		lower-alpha：小写英文字母
+		upper-alpha：大写英文字母
+		none：不使用项目符号
+		cjk-ideographic：浅白的表意数字
+		georgian：传统的乔治数字
+		lower-greek:基本的希腊小写字母
+		hebrew：传统的希伯来数字
+		hiragana:日文平假名字符
+		hiragana-iroha:日文平假名序号
+		katakana：日文片假名字符
+		katakana-iroha：日文片假名序号
+		lower-latin：小写拉丁字母
+		upper-latin：大写拉丁字母
+	控制光标的属性，通过CSS的cursor属性可以改变光标在目标组件上的形状，该属性支持如下值：
+		all-scroll：十字箭头光标
+		col-resize：水平拖动线光标
+		crosshair：十字线光标
+		move：移动十字箭头光标
+		help：带问号的箭头光标
+		no-drop：代表禁止光标
+		not-allowed：禁止光标
+		pointer：代表手型光标
+		progress：带沙漏的箭头光标
+		row-resize：垂直拖动线光标
+		text：代表文本编辑光标
+		vertical-text：代表垂直文本编辑光标
+		wait：沙漏光标
+		*-resize：代表可在各种方向上拖动的光标，支持w-resize，s-resize,n-resize,e-resize,ne-resize,sw-resize,se-resize,nw-resize等各属性值，n代表向上方向，s代表向下方向，e代表向右方向，w代表向左方向。
+	media query功能
+		很多时候，前期使用HTML+CSS设计的样式很精美，但可能由于对方设备，浏览器的原因，比如分辨率达不到要求，色深达不到要求，最后导致显示效果不理想，为CSS3强化了媒体类型支持，增加了media query功能，这种机制允许设计者在CSS样式中添加media query表达式，这种表达式不不仅可以对媒体类型进行匹配，也可以对媒体分辨率，色深等各种细节进行匹配，因此可以针对不同类型，不同参数细节的媒体设备提供精确控制。media query语法格式如下：
+			@media not|only 设备类型 [and 设备特性 ]*
+		在上面语法格式中，[and 设备类型]部分可以出现0~N次，通过使用多个[and 设备特性]可以对多个设备特性进行匹配，media query语法格式中的设备类型如下：
+			all：适用于所有设备类型；
+			aural:适用于语音和音频合成器；
+			braille：适用于触觉反馈设备；
+			embossed：适用于凸点字符（盲文）印刷设备；
+			handheld：适用于小型或手提设备；
+			print：适用于打印机；
+			projection：适用于投印图像；
+			screen：适用于计算机显示器；
+			tty：适用于使用固定间距字符格的设备，如电传打印机和终端；
+			tv：适用于电视类设备。
+	media query语法格式中的设备特性如下所示：
+	![](http://i.imgur.com/S4jqOa5.png)
+11. 变形与动画相关属性
+	CSS3在原来的基础上新增了变形和动画相关属性，通过这些属性可以实现以前需要大段JavaScript才能实现的功能，CSS3的变形功能可以对HTML组件执行位移，旋转，缩放，倾斜4种几何变换，借助这几种变换CSS3提供了transition动画，transition动画比较简单，只要指定HTML组件的哪些CSS属性需要使用动画效果来执行变化，并指定动画的持续时间，就可保证HTML组件按指定规则播放动画。比transition动画功能更强大的是animation动画，animation动画同样可以与位移，旋转，缩放，倾斜4种几何变换结合，但他可以指定多个关键帧，从而允许定义功能更丰富的自定义动画。CSS3为变形支持提供了如下两个属性值：
+		transform：该属性用于设置变形，该属性支持一个或多个变形函数，CSS3提供了如下变形函数：
+			translate(tx,[,ty]):该函数设置HTML组件横向上移动tx距离，纵向上移动ty距离，其中ty参数可以省略，如果省略ty参数则ty默认为0，表示纵向上没有位移；
+			translateX（tx）：该函数设置HTML组件横向上移动tx距离；
+			translateY（ty）：该函数设置HTML组件纵向上移动ty距离；
+			scale（sx，sy）：该函数设置HTML组件横向上缩放比为sx，纵向上缩放比为sy，sy参数可以省略，如果省略该参数sy默认等于sx，也就是保持纵横比缩放。
+			scaleX（sx）：该函数相当于执行scale（sx，1）；
+			scaleY（sy）：该函数相当于执行scale（1，sy）；
+			rotate（angle）：该函数设置HTML组件顺时针旋转angle角度；
+			skew（sx，[,sy]）:该函数设置HTML组件沿着x轴倾斜sx角度，沿着y轴倾斜sy角度，其中sy可以省略，如果省略，则默认sy为0.
+			skewX（sx）：该函数设置HTML组件沿着x轴倾斜sx角度；
+			skewY（sy）：该函数设置HTML组件沿着y轴倾斜sy角度；
+			matrix（m11,m12,m21,m22,dx,dy）：这是一个基于矩阵变换的函数，其中前四个参数将组成变形矩阵，dx，dy将负责对坐标系统进行平移。
+		transform-origin：该属性设置变形的中心点，该属性应指定为xCenter yCenter，其中xCenter，yCenter支持如下几个属性值：
+			left：指定旋转中心点位于HTML组件的左边界，该属性值只能指定给xCenter；
+			right：指定旋转中心点位于HTML组件的右边界，该属性值只能指定给xCenter；
+			top：指定旋转中心点位于HTML组件的上边界，该属性值只能指定给yCenter；
+			bottom：指定旋转中心点位于HTML组件的下边界，该属性值只能指定给yCenter；
+			center：指定旋转中心点位于HTML组件的中间，如果将xCenter，yCenter都指定为center，则旋转中心点位于HTML元素的中心。
+			长度值：指定旋转中心点距离左边界，右边界的长度；
+			百分比：指定旋转中心点位于横向，纵向上的百分比位置。
+	CSS3提供的transition动画通过transition属性来指定，transition属性的值包括如下四个部分：
+		transition-property：指定对HTML元素的哪个CSS属性进行平滑渐变处理，该属性可以指定background-color，width，height等各种标准的CSS属性；
+		transition-duration：指定属性平滑渐变的持续时间；
+		transition-timing-function：指定渐变的速度，该部分支持以下几个值：
+			ease：动画开始较慢，然后速度加快，到达最大速度后再减慢速度；
+			linear：匀速；
+			ease-in：动画开始较慢，然后速度加快；
+			ease-out：动画开始时速度很快，然后速度减慢；
+			ease-in-out：动画开始速度较慢，然后速度加快，到达最大速度后再减慢速度；
+			cubic-bezier（x1,y1,x2,y2）:通过贝济埃曲线来控制动画的速度，该属性完全可以替代上面的属性值。
+		transition-delay：指定延迟时间，也就是指定经过多长时间的延迟才会开始执行平滑渐变。
+	CSS3提供的animation动画，这种动画允许开发者定义多个关键帧，浏览器将会负责计算，插入关键帧之间的虚拟动画帧。CSS3为Animation提供了如下几个属性：
+		animation-name：指定动画名称，该属性指定一个已有的关键帧定义；
+		animation-duration：指定动画的持续时间；
+		animation-timing-function：指定动画的变化速度；
+		animation-delay：指定动画延时多长时间才开始执行；
+		animation-iteration-count：指定动画循环执行次数；
+		animation：这是一个复合属性，该属性的格式为：animation-name animation-duration animation-timing-function animation-delay animation-iteration-count，即按顺序同时指定以上属性。
 		
-			
-			
-
-      
-
-
+	
