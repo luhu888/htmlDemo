@@ -2,55 +2,61 @@
 <!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
-		<title>¬���ĸ�����վ</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>卢虎的个人网站</title>
 		
     <link href="outer.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 	<center>    
-	  <h1><a name="dingbu">HTMLСDemo������h1�ű��⣩</a></h1>
-    <b><i><font color="gray" face="����" size="+2">html,I'm coming!����������ɫ�����ǻ�ɫ�Ӵ�б������</font></i></b>
-	  
+	  <h1><a name="top">HTML小Demo（这是h1号标题）</a></h1>
+    <b><i><font color="gray" face="宋体" size="+2">html,I'm coming!设置文字颜色！这是灰色加粗斜体文字</font></i></b>
+	  <br/>
 	  <a  id="source" href="picture/git.png" target="_blank"><img align="middle" src="picture/git.png" alt="git.png" width="256"
                      height="256" border="0"/></a><a href="git.png" target="_blank"></a>
-	   <p contentEditable="true">��ҳҲ����ͼ�Ĳ�ï��</p>    <!-- ������ע�ͱ��-->
+	   <p contentEditable="true">网页也可以图文并茂！</p>    <!-- 华丽的注释标记-->
     </center>
-	  <h2 align="left">��������չ����Դ</h2>
-	  <h3>��һ�׶Σ�����h3�ű��⣩</h3>
+	  <h2 align="left">互联网发展的起源</h2>
+	  <h3>第一阶段（这是h3号标题）</h3>
 	  		<blockquote>
-	  		  <p><big><strong>(�˴�Ϊ���ֶ��������)</strong></big><strong>1969�꣬Ϊ�˱���ͨ�����磬
-                  <s>����������</s>�߼��о��ƻ�����<u>ARPA</u>���������������ϵ�һ�����齻��ʵ����ARPANET������������<small>�ĸ���ѧ</small>
-                  ARPANET�Ľ��ɺͲ��Ϸ�չ��־�ż������չ���¼�Ԫ�� </strong>
+	  		  <p class="a"><big><strong>(此处为文字段落的缩进)</strong></big><strong>1969年，为了保障通信联络，
+                  <s>美国国防部</s>高级研究计划部署<u>ARPA</u>资助建立了世界上第一个分组交换实验网ARPANET，连接美国的<small>四个大学</small>
+                  ARPANET的建成和不断发展标志着计算机发展的新纪元。 </strong>
               </p>
   		    </blockquote>
-	  <h3 align="center">�ڶ��׶Σ�����h3�ű��⣩</h3>
-	  <p align="left">			  ����20����70���ĩ��80����������������<i>���չ</i>�����ָ����ļ�����������˶�����
-          ��&nbsp;MILNET��USENET��BITNET��CSNET�ȣ�������Ĺ�ģ�������϶��õ��˺ܴ�ķ�չ��һϵ������Ľ��裬�����˲�ͬ����֮�以��
-          ���������յ�����<em><strong>TCP/IP</strong></em>Э��ĵ���
+	  <h3 align="center">第二阶段（这是h3号标题）</h3>
+	  <p align="left" class="a">			  　　20世纪70年代末到80年代初，计算机网络<i>蓬勃发展</i>，各种各样的计算机网络因运而生，
+          如&nbsp;MILNET，USENET，BITNET，CSNET等，在网络的规模和数量上都得到了很大的发展。一系列网络的建设，产生了不同网络之间互联
+          的需求并最终导致了<em><strong>TCP/IP</strong></em>协议的诞生
       </p>
 
-      <p align="left">����һ�������б�</p>
+      <p align="left">这是一个无序列表</p>
 	     <ul contentEditable="true" >
-		 <li spellcheck="true"><strong>		   ������Ƭ������</strong></li>
-		 <li><strong>		   �༭��ҳ</strong></li>
-		 <li><strong>		   ����ͼ������</strong></li>
-		 <li><strong>		   ���������������</strong></li>
+		 <li spellcheck="true"><strong>		   绘制切片并导出</strong></li>
+		 <li><strong>		   编辑首页</strong></li>
+		 <li><strong>		   插入图像内容</strong></li>
+		 <li><strong>		   设置自由延伸表格</strong></li>
 		 </ul>
-	  <p align="center">����һ�������б�</p>
+	  <p align="center">这是一个有序列表</p>
 	     <ol>
-		 <li>������Ƭ������</li>
-		 <li>�༭��ҳ</li>
-		 <li>����ͼ������</li>
-		 <li>���������������</li>
+		 <li>绘制切片并导出</li>
+		 <li>编辑首页</li>
+		 <li>插入图像内容</li>
+		 <li>设置自由延伸表格</li>
 		 </ol>
     <div id="target" hidden="true" style="height:15px">
    <textarea spellcheck="true" rows="10" cols="100"></textarea>
-    </div><br/><br/><br/><br/><br/>
+    </div><br/>
+   <div> 伪元素选择器并不是针对真正的元素使用的选择器，伪元素选择器只能针对CSS中已有的伪元素起作用，CSS提供的伪元素选择器有如下几个：                                                                                                                      
+		<div>:first-letter该选择器对应的CSS样式对指定对象的第一个字符起作用，</div><br/>
+		<div>:first-line该选择器对应的CSS样式对指定对象的第一行内容起作用，</div><br/>
+		<div>:before该选择器与内容相关的属性结合使用，用于在指定对象内部的前端插入内容，</div><br/>
+		<div>:after该选择器与内容相关的属性结合使用，用于指定对象内部的尾端添加内容。</div><br/>
+	:first-letter选择器仅对块元素（如&lt;div&gt;,&lt;p&gt,&lt;section&gt等元素）起作用，如果相对内联元素（&lt;span&gt等元素）使用该属性，必须先设定对象的height，width属性，或者设定position属性为absolute，或者设定display属性为block，通过该选择器配合font-size，float属性可制作首字下沉效果。</div><br/><br/><br/><br/>
 	 <p><button onclick="var target=document.getElementById('target');
-			target.hidden=!target.hidden;">��ʾ/�����ı���</button></p>
+			target.hidden=!target.hidden;">显示/隐藏文本框</button></p>
 		 <p>
-		 x&lt;y   a&gt;b  Z&lowast;m������2H<sub>2</sub> + O<sub>2</sub> &hArr;<sup>��ȼ</sup> 2H<sub>2</sub>O </p>
+		 x&lt;y   a&gt;b  Z&lowast;m　　　2H<sub>2</sub> + O<sub>2</sub> &hArr;<sup>点燃</sup> 2H<sub>2</sub>O </p>
 		 <code></code>
 		 <center><p><img src="picture/map.jpg" alt="map.jpg" width="453" height="340" border="0" usemap="#Map1" />
 		     <map name="Map1" id="Map1">
@@ -60,97 +66,113 @@
 	     </p>
 		 </center>
 		 
-		 <center><p>�����ͼ</p> </center>
-		��ǰ������<meter value="120" min="0" max="220" low="0" high="160">120</meter>km/h.<br/>
-		������ɽ��ȱȣ�<progress value="30" max="100">30/100</progress>
+		 <center><p>世界地图</p> </center>
+		当前车速是<meter value="120" min="0" max="220" low="0" high="160">120</meter>km/h.<br/>
+		任务完成进度比：<progress value="30" max="100">30/100</progress>
+   
     <form action="HTMLtest.html" method="post">
-        <label for="username">�����ı���</label><!--��ʾ���������ؼ�-->
+        <label for="username">单行文本框：</label><!--显示关联表单控件-->
         <input id="username" name="username" type="text"/><br/>
         <label>
-            ����򣺡��� <input id="password" name="password" type="password"/><!--��ʽ���������ؼ�-->
+            密码框：　　 <input id="password" name="password" type="password"/><!--隐式关联表单控件-->
         </label><br/>
-        <input id="ok" type="submit" value="��¼"/>
+        <input id="ok" type="submit" value="登录"/>
     </form>
     <form action="HTMLtest.html" method="post">
-        <button type="button"><b>�ύ</b></button><br/>
+        <button type="button"><b>提交</b></button><br/>
        <button type="submit"><img alt="git.png" src="picture/git.png" height="64" width="64"/></button><br/>
     </form><br/><br/><br/><br/><br/><br/>
-    <form action="HTMLtest.html" method="post">  <!--�б���������˵�-->
-        �����Ǽ������˵���<br/>
-        <select id="skills" name="skills">
-            <option value="java">Java����</option>
-            <option value="c">C����</option>
-            <option value="ruby">Ruby����</option>
+    <form action="HTMLtest.html" method="post">  <!--列表框和下拉菜单-->
+        下面是简单下拉菜单：<br/>
+        <select  id="skills" name="skills">
+            <option value="java">Java语言</option>
+            <option value="c">C语言</option>
+            <option value="ruby">Ruby语言</option>
         </select><br/> <br/> <br/> <br/>
 
-            ������������ѡ���б���<br/>
+            下面是允许多选的列表框：<br/>
         <select id="books" name="books" multiple="multiple" size="4">
-            <option value="java">Javaʵս</option>
-            <option value="android">Androidʵս</option>
-            <option value="python">Pythonʵս</option>
-            <option value="c">cʵս</option>
+            <option value="java">Java实战</option>
+            <option value="android">Android实战</option>
+            <option value="python">Python实战</option>
+            <option value="c">c实战</option>
         </select><br/> <br/> <br/> <br/> <br/>
 
-        ������������ѡ���б���<br/>
+        下面是允许多选的列表框：<br/>
         <select id="luhu" name="luhu" multiple="multiple" size="6">
-            <optgroup label="ħ��ͼ��">
-                <option value="java">java��Ŀʵս</option>
-                <option value="python">python��Ŀʵս</option>
-                <option value="android">android��Ŀʵս</option>
+            <optgroup label="魔法图书">
+                <option value="java">java项目实战</option>
+                <option value="python">python项目实战</option>
+                <option value="android">android项目实战</option>
             </optgroup>
-            <optgroup label="ʵսͼ��">
-                <option value="luhu">Ȩ��ָ��</option>
-                <option value="haha">�����</option>
-                <option value="hehe">��͸����</option>
+            <optgroup label="实战图书">
+                <option value="luhu">权威指南</option>
+                <option value="haha">疯狂讲义</option>
+                <option value="hehe">渗透测试</option>
             </optgroup>
         </select><br/>
-        <button type="submit"><b>�ύ</b></button>
+        <button type="submit"><b>提交</b></button>
         </form>
-
-    <form action="HTMLtest.html" method="post">   <!--cols��ʾ�ı���Ŀ��ȣ�rows��ʾ�ı���ĸ߶�-->
-        �򵥶����ı���<br/>
+<center>
+    <form action="HTMLtest.html" method="post">   <!--cols表示文本域的宽度，rows表示文本域的高度-->
+        简单多行文本域：<br/>
         <textarea rows="20" cols="80"></textarea><br/>
-        ֻ�������ı���<br/>
-        <textarea rows="20" cols="80" readonly>�������������Java���壬������ֻ�������ı�
-ֻ�ܶ������ܸģ���������</textarea>
+        只读多行文本域：<br/>
+        <textarea rows="20" cols="80" readonly>哈哈哈哈，疯狂Java讲义，这里是只读多行文本
+只能读，不能改，哈哈哈哈</textarea>
     </form>
     <br/>
     <form id="LuHu" action="add">
-        ��Ʒ����<input type="text" name="name"/>
-        <input type="submit" value="����"/>
+        物品名：<input type="text" name="name"/>
+        <input type="submit" value="添加"/>
     </form><br/>
-    ��Ʒ������<textarea rows="5" cols="30" name="desc" form="LuHu"></textarea>
+    物品描述：<textarea rows="5" cols="30" name="desc" form="LuHu"></textarea>
     <br/>
 	
     <form method="post">
-        �û�����<input type="text" name="name" placeholder="�������û���"/><br/>
-        ���룺��<input type="password" name="123456" placeholder="����������"/><br/>
-        <input type="submit" value="ע��" formaction="regist"/>
-        <input type="submit" value="��¼" formaction="login"/>
+        用户名：<input type="text" name="name" placeholder="请输入用户名"/><br/>
+        密码：　<input type="password" name="123456" placeholder="请输入密码"/><br/>
+        <input type="submit" value="注册" formaction="regist"/>
+        <input type="submit" value="登录" formaction="login"/>
     </form><br/>
         <form method="post" action="buy">
-            ������������<input type="text" name="name" list="books"/><br/>
-            <input type="submit" value="����"/>
+            请输入书名：<input type="text" name="name" list="books"/><br/>
+            <input type="submit" value="购买"/>
         </form>
-    <datalist >    <!--chorme��ʱ����֧�ָ�����-->
-        <option value="java">javaʵս</option>function yourFunction()
+    <datalist >    <!--chorme暂时还不支持该属性-->
+        <option value="java">java实战</option>function yourFunction()
 {
 
 }
-        <option value="python">pythonʵս</option>
-        <option value="android">androidʵս</option>
+        <option value="python">python实战</option>
+        <option value="android">android实战</option>
 
     </datalist><br/>
     <form action="do">
-        type="color"���ı���<br/><input id="color" name="color" type="color"/>
+        type="color"的文本框：<br/><input id="color" name="color" type="color"/>
         <output name="a" for="color" onforminput="innerHTML=color.value;"></output><br/><br/>
-        type="date"���ı���<br/><input name="date" type="date"/><br/><br/>
-        type="time"���ı���<br/><input name="time" type="time"/><br/><br/>
-        type="week"���ı���<br/><input name="week" type="week"/><br/><br/>
-        type="range"���ı���<br/><input name="range" type="range" min="0" max="100" step="10"/>
+        type="date"的文本框：<br/><input name="date" type="date"/><br/><br/>
+        type="time"的文本框：<br/><input name="time" type="time"/><br/><br/>
+        type="week"的文本框：<br/><input name="week" type="week"/><br/><br/>
+        type="range"的文本框：<br/><input name="range" type="range" min="0" max="100" step="10"/>
         <output name="b" for="range" onforminpu0t="innerHTML=range.value;"></output><br/><br/>
     </form>
-     <center> <img alt="home" src="picture/jp.png" height="990" width="2633"></center>
+      <img alt="home" src="picture/jp.png" height="990" width="2633"></center><br/><br/><br/><br/><br/>
+
+<h1 align="center">新年快乐</h1>
+	
+	<span class="b">爆</span><span class="d">春</span>
+	<span class="b">竹</span><span class="b">风</span>
+	<span class="b">声</span><span class="b">送</span>
+	<span class="b">中</span><span class="b">暖</span>
+	<span class="b">一</span><span class="b">入</span>
+	<span class="b">岁</span><span class="b">屠</span>
+	<span class="b">除</span><span class="b">苏</span>
+		
+		
+	
+		
+	
 
 
 
@@ -158,17 +180,13 @@
 
 
 
-
-
-
-
-		 <p align="right">&nbsp;</p>
-		 <div align="right"></div>
-		   <!--_blank���Ա�ʾ���´����д�����-->
-           <div align="right">&copy;<a href="link/QQLink.html" target="_blank">1012587896@qq.com</a></div>
-	       <div align="right"><strong><u><a href="#dingbu">���ض���</a></u></strong></div>
-
-    </body>
+		</body>
+		 <div class="myclass" align="right"></div>
+		 <!--_blank属性表示在新窗口中打开链接-->
+      <div class="myclass" align="right">&copy;<a href="link/QQLink.html" target="_blank">1012587896@qq.com</a></div>
+	    <div class="myclass" align="right"><strong><u><a href="#top">返回顶部</a></u></strong></div>
+      
+    
 	
 	
 	
