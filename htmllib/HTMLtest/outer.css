@@ -1,0 +1,103 @@
+﻿/* CSS Document */
+/*设置背景色,.后表示class的属性值，#表示id值为*/
+/*p,a,div,.myclass,#abc {
+		background-color:cadetblue
+   }
+
+*/
+div[id] {
+	background-color: #aaa;
+}
+div[id*=xx] {
+	background-color: #999;
+}
+/*div.myclass{
+	background-color: aqua
+}
+*/
+p.a:first-letter {
+	font-size: 20pt;
+	color: #00f;
+}
+div>div:before {
+	content: '类型:';
+	color: cadetblue;
+	font-weight: bord;
+	background-color: cornsilk;
+}
+div>div:after {
+	content: url(picture/gz.png)
+}
+body {
+	background-color: darkgray
+}
+option {/*引入计数器属性添加编号*/
+	counter-increment: mycounter;
+}
+option:before {/*使用自定义编号*/
+	content: counter(mycounter, square);
+}
+Selector:root {
+	background-color: cornflowerblue
+}
+li:first-child {/*定义对作为其父元素的第一个子节点的li元素起作用的CSS样式*/
+	border: 1px solid black;
+}
+li:nth-child(odd) {/*定义对作为其父元素的第n个子节点的li元素起作用的CSS样式,填奇数偶数也可以*/
+	color: crimson
+}
+Selector:empty {
+	color: fuchsia
+}
+
+td {
+	border:1px solid black;
+	padding:4px;
+}
+tr:hover{/*为处于坐标悬停的表格定义CSS样式*/
+	background-color:#392A9A;
+}
+input:active{/*为处于激活状态的input元素定义CSS样式*/
+	background-color: blue;
+}
+:focus{/*为得到焦点的任意元素定义CSS样式*/
+	text-decoration:underline;
+}
+enabled{/*为可用的元素定义CSS样式*/
+	font-family:"黑体";
+	font-weight:bold;
+	font-size:14pt;
+}
+：disabled{/*为不可用的元素定义CSS样式*/
+	font-family:"隶书";
+	font-size:14pt;
+}
+:checked{/*为处于够选状态的任意元素定义CSS样式*/
+	outline:red solid 5px;
+}
+:default{
+	outline:#bbb solid 5px;
+}
+
+::selection{/*为内容被选择的元素设置CSS样式*/
+	background-color: red;
+	color:blue;
+}
+::-moz-selection{/*专为基于 gecko内核的浏览器设置CSS样式,浏览器专属的属性*/
+	background-color: red;
+	color:white;
+}
+
+:target{/*高亮正在被访问的锚点，比如访问返回顶部的超链接*/
+	background-color: brown;
+}
+div.luhu {
+    border:1px solid #000000;
+	height:50px;
+	width:240px;
+}
+
+
+
+
+
