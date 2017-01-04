@@ -95,9 +95,25 @@ div.luhu {
     border:1px solid #000000;
 	height:50px;
 	width:240px;
+	resize:both;
+	overflow: auto;
 }
 
-
-
+div.lh{
+	width:400px;
+	height:300px;
+	padding: 80px
+}
+div.ll{
+	width:280px;
+	height:80px;
+	background-color: aquamarine;
+	background-clip:content-box;
+	border: 30px solid #555;
+	padding: 30px;
+}
+div.hh{
+	outline:rgba(50,50,50,0.5) ridge 10px;
+}
 
 
