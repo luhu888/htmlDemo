@@ -48,10 +48,10 @@
    <textarea spellcheck="true" rows="10" cols="100"></textarea>
     </div><br/>
    <div> 伪元素选择器并不是针对真正的元素使用的选择器，伪元素选择器只能针对CSS中已有的伪元素起作用，CSS提供的伪元素选择器有如下几个：                                                                                                                      
-		<div>:first-letter该选择器对应的CSS样式对指定对象的第一个字符起作用，</div><br/>
-		<div>:first-line该选择器对应的CSS样式对指定对象的第一行内容起作用，</div><br/>
-		<div>:before该选择器与内容相关的属性结合使用，用于在指定对象内部的前端插入内容，</div><br/>
-		<div>:after该选择器与内容相关的属性结合使用，用于指定对象内部的尾端添加内容。</div><br/>
+		<div class="zi">:first-letter该选择器对应的CSS样式对指定对象的第一个字符起作用，</div><br/>
+		<div class="zi">:first-line该选择器对应的CSS样式对指定对象的第一行内容起作用，</div><br/>
+		<div class="zi">:before该选择器与内容相关的属性结合使用，用于在指定对象内部的前端插入内容，</div><br/>
+		<div class="zi">:after该选择器与内容相关的属性结合使用，用于指定对象内部的尾端添加内容。</div><br/>
 	:first-letter选择器仅对块元素（如&lt;div&gt;,&lt;p&gt,&lt;section&gt等元素）起作用，如果相对内联元素（&lt;span&gt等元素）使用该属性，必须先设定对象的height，width属性，或者设定position属性为absolute，或者设定display属性为block，通过该选择器配合font-size，float属性可制作首字下沉效果。</div><br/><br/><br/><br/>
 	 <p><button onclick="var target=document.getElementById('target');
 			target.hidden=!target.hidden;">显示/隐藏文本框</button></p>
@@ -159,16 +159,6 @@
     </form>
       <img alt="home" src="picture/jp.png" height="990" width="2633"></center><br/><br/><br/><br/><br/>
 
-<h1 align="center">新年快乐</h1>
-	
-	<span class="b">爆</span><span class="d">春</span>
-	<span class="b">竹</span><span class="b">风</span>
-	<span class="b">声</span><span class="b">送</span>
-	<span class="b">中</span><span class="b">暖</span>
-	<span class="b">一</span><span class="b">入</span>
-	<span class="b">岁</span><span class="b">屠</span>
-	<span class="b">除</span><span class="b">苏</span>
-		
 <table style="width:400px;border-collapse:collapse">
 	<tr><td>疯狂java讲义</td><td>109</td></tr>
 	<tr><td>java实战</td><td>127</td></tr>
@@ -183,9 +173,9 @@
 		未知：<input type="radio" checked value="unkown" name="gender"/><br/>
 	<span style="text-decoration: blink;">测试文字</span>
  <div class="luhu" style="word-break:break-all border: 2px solid black;border-radius: 10px 10px 10px 10px;">the root interface in the collection hierarchy.</div><!--设置文本自动换行，允许在单词中换行和不允许在单词中换行,以及设置圆角边框-->
- <br/>
- <div class="lh" style="-webkit-border-image:url(picture/border.png)80/80px round;">哈哈哈这个是图形背景，大方的说法啊，
-  _{___{__}\
+ <br/>                                                
+ <div class="lh" style="-webkit-border-image:url(picture/border.png)80/80px stretch;">哈哈哈这个是图形背景，大方的说法啊，
+  _{___{__}\                                             <!--用于控制如何对边框图片进行切割/用于指定图片边框的宽度分别可定义4个值-->
  {_}      `\)            
 {_}        `            _.-''''--.._
 {_}                    //'.--.  \___`.
@@ -197,7 +187,14 @@
          ^  ^  ^  ^     `-.....--'''-->
          </div><br/>
  <div class="ll">html的box-sizing属性</div>        <br/>
-  <div class="hh" style="position: absolute;left:400px; top:2000px;width:180px;height:88px;z-index:2;background-color: blueviolet;">hh使用position属性值为absolute，该标签将完全漂浮在页面之上、</div>       
+ <div class="hh" style="position: absolute;left:400px; top:2000px;width:180px;height:88px;z-index:2;background-color: blueviolet;">hh使用position属性值为absolute，该标签将完全漂浮在页面之上、</div>       
+ 
+ <div class="package">
+ <center><p class="happy"><strong>新年快乐</strong></p></center>
+ <div class="left"><strong>爆<br/>竹<br/>声<br/>中<br/>一<br/>岁<br/>除</strong></div>
+	 <div class="right"><strong>春<br/>风<br/>送<br/>暖<br/>入<br/>屠<br/>苏</strong></div> 
+	 </div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
          
          
          
@@ -208,8 +205,7 @@
          
          
          
-         
-         
+         　
          
          
          

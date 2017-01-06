@@ -19,17 +19,17 @@ p.a:first-letter {
 	font-size: 20pt;
 	color: #00f;
 }
-div>div:before {
+div>div.zi:before {
 	content: '类型:';
 	color: cadetblue;
 	font-weight: bord;
 	background-color: cornsilk;
 }
-div>div:after {
+div>div.zi:after {
 	content: url(picture/gz.png)
 }
 body {
-	background-color: darkgray
+	background-color: darkgray;
 }
 option {/*引入计数器属性添加编号*/
 	counter-increment: mycounter;
@@ -115,5 +115,30 @@ div.ll{
 div.hh{
 	outline:rgba(50,50,50,0.5) ridge 10px;
 }
+div.left{
+	background-color: red;
+	background-clip: content-box;
+	padding-left: 588px;
+	width: 50px;
+	color: black;
+	font-size: 50px;
+	float:left;
+}
+div.right{
+	padding-right: 588px;
+	width: 50px;
+	background-color: red;
+	background-clip: content-box;
+	color: black;
+	font-size: 50px;
+	float:right;
+}
+p.happy{
+	width: 250px;
+	background-color: red;
+	color:black;
+	font-size: 50px;
+}
+
 
 
