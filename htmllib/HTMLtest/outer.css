@@ -75,7 +75,7 @@ enabled{/*为可用的元素定义CSS样式*/
 :checked{/*为处于够选状态的任意元素定义CSS样式*/
 	outline:red solid 5px;
 }
-:default{
+:default{/*伪元素选择器*/
 	outline:#bbb solid 5px;
 }
 
@@ -92,7 +92,7 @@ enabled{/*为可用的元素定义CSS样式*/
 	background-color: brown;
 }
 div.luhu {
-    border:1px solid #000000;
+    border:1px solid  #2E2E2E;
 	height:50px;
 	width:240px;
 	resize:both;
@@ -112,20 +112,27 @@ div.ll{
 	border: 30px solid #555;
 	padding: 30px;
 }
-div.hh{
-	outline:rgba(50,50,50,0.5) ridge 10px;
+div.hh{/*漂浮窗设置变形与动画,位移，旋转，缩放*/
+	background-color: gray;
+	outline:rgba(50,50,50,0.2) ridge 30px;
+	transform: translate(100px,100px) rotate(30deg) scale(0.8,0.8) skewx(30deg);
+	transition: background-color 3s linear;
 }
-div.left{
+div.hh:hover{/*当鼠标悬停在该div上时，发生线性变化的动画*/
+	background-color: yellow;
+	font-size: 40px;
+}
+div.left{/*对联设置左*/
 	background-color: red;
 	background-clip: content-box;
-	padding-left: 588px;
+	padding-left: 30%;
 	width: 50px;
 	color: black;
 	font-size: 50px;
 	float:left;
 }
-div.right{
-	padding-right: 588px;
+div.right{/*对联设置右*/
+	padding-right: 30%;
 	width: 50px;
 	background-color: red;
 	background-clip: content-box;
@@ -139,6 +146,161 @@ p.happy{
 	color:black;
 	font-size: 50px;
 }
+
+@media all and (max-width : 1603px ){/*当屏幕尺寸小于1603px时的对联布局*/
+	body{
+		width:auto;
+	}
+	div.left {
+	background-color: red;
+	background-clip: content-box;
+	padding-left: 10%;
+	width: 50px;
+	color: black;
+	font-size: 50px;
+	float:left;
+}
+div.right{
+	padding-right: 10%;
+	width: 50px;
+	background-color: red;
+	background-clip: content-box;
+	color: black;
+	font-size: 50px;
+	float:right;
+	
+}
+}
+div.container{  /*默认情况下，三段文字的布局*/
+	float: left;
+	width: auto;
+
+}
+div.container>div{
+	margin: 5px;
+	border:2px solid black;
+	padding: 5px;
+	background-color: aquamarine;
+	box-sizing: border-box;/*box-sizing属性用来设置width，height控制哪些区域的宽度，高度*/
+}
+div.divl{
+	margin-right: 5px;
+	height: 190px;
+    width: 533px;
+	float: left;
+}
+div.divc{
+	margin-right: 5px;
+	height: 190px;
+    width: 533px;
+	float:left;
+	clear: none;
+}
+div.divr{
+	height: 190px;
+    width: 534px;
+	float:left;
+}
+@media all and (max-width : 1670px ){/*当宽度小于1670px时的布局*/
+	div.container{  
+	float: left;
+	width: auto;
+
+}
+div.container>div{
+	margin: 5px;
+	border:2px solid black;
+	padding: 5px;
+	background-color: aquamarine;
+	box-sizing: border-box;/*box-sizing属性用来设置width，height控制哪些区域的宽度，高度*/
+}
+div.divl{
+	margin-right: 5px;
+	height: 190px;
+    width: 533px;
+	float: left;
+}
+div.divc{
+	margin-right: 5px;
+	height: 190px;
+    width:533px;
+	float:left;
+	clear: right;
+}
+div.divr{
+	height: 190px;
+    width: 1066px;
+	float:left;
+}
+}
+@media all and (max-width : 1200px ){/*当宽度小于1200px时的布局*/
+	div.container{  
+	float: left;
+	width: auto;
+
+}
+div.container>div{
+	margin: 5px;
+	border:2px solid black;
+	padding: 5px;
+	background-color: aquamarine;
+	box-sizing: border-box;/*box-sizing属性用来设置width，height控制哪些区域的宽度，高度*/
+}
+div.divl{
+	margin-right: 5px;
+	height: auto;
+    width: auto;
+	float: left;
+	clear: none;
+}
+div.divc{
+	margin-right: 5px;
+	height: auto;
+    width: auto;
+	float:left;
+	clear: none;
+}
+div.divr{
+	height: auto;
+    width: auto;
+	float:left;
+	clear: none;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

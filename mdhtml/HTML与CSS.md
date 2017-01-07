@@ -31,7 +31,15 @@
 		
 14. < table>< /table>标记用来定义一个表格。
     
-15. < blockquote>与< /blockquote>设置文字段落的缩进，比如显示引用的内容。
+15. < blockquote>与< /blockquote>设置文字段落的
+16. 
+17. 
+18. 
+19. 
+20. 
+21. 
+22. 
+23. ，比如显示引用的内容。
     
 16. < ul>与< /ul>设置无序列表，即每个列项的前面有一个圆点符号，其中每一个列表项使用< li>< /li>
 	
@@ -74,7 +82,8 @@
 		
 33. 建立框架与框架集< frame>与< frameset>,比如一个网页中左侧是讨论区的名字，单击任意一个讨论区名称，在网页的右侧就会显示相应讨论区的内容，左右两边是独立显示的。这样整个页面就是一个“框架集”，这个框架集由左右两个“框架”构成，框架集的html的标记是< frameset>，框架的html的标记是< frame>,但要注意的是，frameset标记与body标记是同级的，不要让两个标记同时出现。frameset框架的属性，cols将一个框架集分为若干列，语法结构是< frameset cols="n1,n2,n3..，*">,n1表示窗口1的宽度，以像素或百分比为单位；rows将一个框架集分为若干行，语法结构同上，星号“*”表示页面被前面划分后剩余的部分。同样框架也可以嵌套，让整个页面中既有水平方向，又有竖直方向上的框架，也就是frameset中嵌套一个frameset。
 
-34. frame标签中的属性：frameborder规定是否显示框架周围的边框，但是在HTML中最好不要设置该属性，用CSS来应用边框样式和颜色；marginheight属性规定框架内容与框架的上方和下方之间的高度，以像素计
+34. frame标签中的属性：frameborder规定是否显示框架周围的边框，但是在HTML中最好不要设置该属性，用CSS来应用边框样式和颜色；
+35. height属性规定框架内容与框架的上方和下方之间的高度，以像素计
  < frame src="frame_a.htm" marginheight="50" />文字距离上边有50个像素；marginwidth属性规定的框架内容与框架的左边和右边之间的距离，以像素计，< frame src="frame_a.htm" marginwidth="50" />内容文字距离左边50个像素；name规定框架的名称，< frame src="frame_a.htm" name="frame_a" />；noresize属性规定用户无法调整框架的大小，< frame noresize="noresize">；scrolling属性规定是否在框架中显示滚动条，<frame scrolling="value">（auto，yes，no）；src属性规定在框架中显示的文档的URL< frame src="URL">。
 35. < div>与< /div>属性可定义文档中的分区或节，比如将文档的一个部分显示为绿色。
     < span>与< /span>属性与div类似，区别在于该定义的节默认不会换行。
