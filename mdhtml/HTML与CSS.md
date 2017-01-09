@@ -31,15 +31,7 @@
 		
 14. < table>< /table>标记用来定义一个表格。
     
-15. < blockquote>与< /blockquote>设置文字段落的
-16. 
-17. 
-18. 
-19. 
-20. 
-21. 
-22. 
-23. ，比如显示引用的内容。
+15. < blockquote>与< /blockquote>设置文字段落的，比如显示引用的内容。
     
 16. < ul>与< /ul>设置无序列表，即每个列项的前面有一个圆点符号，其中每一个列表项使用< li>< /li>
 	
@@ -49,7 +41,7 @@
     
 19. < body text="#000000" bgcolor="#808080">设置文字以及背景的颜色。
 
-20. < u>与< /u>文字以下划线的方式显示。
+20. < u>与< /u>文字以下划线的方式显示。2017/1/9 15:16:32 
 	
 21. < s>与< /s>文字加下删除线的方式显示。
 	
@@ -69,9 +61,7 @@
 	
 29. < sup>与< /sup>为上标标记，用于将数字缩小后显示于上方。
 
-30. 特殊符号的表示方法：
-31. 
-32. &lt； 表示小于，&gt；表示大于，&copy；表示版权符号，&nbsp；表示空格，&divide；表示除号，&permil；表示千分号，&harr；表示双向的箭头。在DW中输入&会有提示，要记住几个常用的。
+30. 特殊符号的表示方法： &lt； 表示小于，&gt；表示大于，&copy；表示版权符号，&nbsp；表示空格，&divide；表示除号，&permil；表示千分号，&harr；表示双向的箭头。在DW中输入&会有提示，要记住几个常用的。
 	
 31. < a href="#目标名称">链接文字< /a>与< a name="目标名称">链接目标文字< /a>表示设置页面内部的特定目标的超链接，如在页面底部设置返回顶部的超链接,同理也可以设置页面之间的超链接。
 	
@@ -863,4 +853,68 @@ noresize。
 		animation-iteration-count：指定动画循环执行次数；
 		animation：这是一个复合属性，该属性的格式为：animation-name animation-duration animation-timing-function animation-delay animation-iteration-count，即按顺序同时指定以上属性。
 		
+#JavaScript详解
+　　JavaScript是一种基于客户端浏览器的，基于对象，事件驱动式的脚本语言，JavaScript也有跨平台的特点，是动态解释执行的，JavaScript的主要功能是：动态修改html页面内容，包括创建，删除html页面元素，修改html页面元素的内容，外观，位置，大小等。
+1. 运行JavaScript
+	在html页面中嵌入执行JavaScript代码有两种方式：
+		使用JavaScript：前缀构建执行JavaScript代码的URL；
+		使用<script.../>元素来包含JavaScript代码。
+	如果页面中需要包含大量的JavaScript代码，则建议将这些JavaScript脚本放在< script>< /script>标签之间，< script>元素既可作为< head>子元素，也可作为< body>子元素。
+		< body>
+           <a href="javascript:alert('运行JavaScript！');">运行JavaScript</a>
+		      <script type="text/javascript">
+	            alert("直接运行的JavaScript！");
+               < /script>
+		< /body>
+	上面页面中粗体字代码示范了两种运行JavaScript脚本代码的方式，第一种方式会生成一个超链接，当用户该超链接时，alert（'运行JavaScript！'）；就会获得执行。
+2. 导入JavaScript文件为了让html页面和JavaScript脚本更好地分离，我们可以将JavaScript脚本单独保存在一个*.js文件中html导入该文件即可，在html页面中导入JavaScript脚本文件格式如下：
+	< script src="test.js" type="text/javascript"></javascript>
+3. 数据类型和变量
+	JavaScript是弱类型脚本语言，使用变量之前，可以无需定义，想使用某个变量直接使用即可，归纳起来，JavaScript支持两种方式引入变量：
+		隐式定义：直接给变量赋值；
+			< script type="text/javascript">
+				a="hello javascript";
+				alert(a);
+			< /script>
+		显式定义：使用var关键字定义变量，也可以同时定义多个变量，声明时变量可以没有初始值，声明的变量数据类型是不确定的，当第一次给变量赋值时，变量的数据类型才确定下来，而且使用过程中变量的数据类型也可以随意改变。
+			< script type="text/javascript">
+				var a;
+				a=true;
+				alert(a);
+			< /script>
+	JavaScript支持自动类型转换，他的转换规律是：
+		对于减号运算符，因为字符串不支持减法运算，所以系统自动将字符串转换成数值；
+		对于加号运算符，因为字符串可用加号作为连接运算符，所以系统自动将数值转换成字符串，并将两个字符串进行连接运算。
+	各种类型自动类型转换的结果如下表所示：
+    
+	![](http://i.imgur.com/ESq53IQ.png)
+	但这种自动类型转换可读性非常差，而且有时候我们就是希望让字符串和数值执行加法运算，这就需要强制类型转换了，JavaScript提供了如下几个函数来执行强制类型转换：
+		toString（）：将布尔值，数值等转换成字符串；
+		parseInt（）：将字符串，布尔值等转换成整数；
+		parseFloat（）：将字符串，布尔值等转换成浮点数。
+	　　变量是程序设计语言里最重要，最基本的概念，与强类型语言不同的是，JavaScript是弱类型的语言，同一个变量可以一会儿存储数值，一会存储字符串。变量还有个重要的概念:作用范围；根据变量定义的范围不同，变量有全局变量和局部变量之分，直接定义的变量是全局变量，全局变量可以被所有的脚本访问；在函数中定义的变量称为局部变量，局部变量只在函数中有效。如果全局变量和局部变量使用相同的变量名，则局部变量将覆盖全局变量。
+3. JavaScript的基本数据类型：JavaScript是弱类型脚本语言，声明变量时无需指定变量的数据类型，JavaScript变量的数据类型是解释是动态决定的，但JavaScript的值保存在内存中时，也是有数据类型的，JavaScript的基本数据类型如下所示：
+	数值类型：包含整数或浮点数；
+	布尔类型：只有true或false两个值；
+	字符串类型：字符串变量必须用引号括起来，引号可以是单引号，也可以是双引号，JavaScript以String内建类来表示字符串，String类里包含了一系列方法操作字符串，String类有如下基本方法和属性操作字符串：
+		String（）：类似于面向对象语言中的构造器，使用该方法可以构建一个字符串；
+		charAt（）：获取字符串特定索引处的字符；
+		charCodeAt（）：返回字符串中特定索引处的字符所对应的Unicode值；
+		length：属性，直接返回字符串长度，JavaScript中的中文字符算一个字符；
+		toUpperCase（）：将字符串所有字符转换成大写字符；
+		toLowerCase（）：将字符串所有字符转换成小写字符；
+		fromCharCode（）：静态方法，直接通过String类调用此方法，将一系列Unicode值转化成字符串；
+		indexOf（）：返回字符串中特定字符串第一次出现的位置；
+		lastIndexOf（）：返回字符串中特定字符最后一次出现的位置；
+		subString（）：返回字符串的某个子串；
+		slice（）：返回字符串的某个子串，功能比subString更强大，支持负数参数；
+		match（）：使用正则表达式搜索目标子字符串；
+		search（）：使用正则表达式搜索目标子字符串；
+		concat（）：用于将多个字符串拼加成一个字符串；
+		split（）：将某个字符串分成多个字符串，可以指定分隔符；
+		replace（）：将字符串中某个子串以特定字符串代替。
+	undefined类型：专门用来确定一个已经创建但是没有初值的变量；
+	null类型：用于表明某个变量的值为空。
+	当数值变量的值超出了其表示范围时，将出现两个特殊值：Infinity（正无穷大）和-Infinity（负无穷大），前者表示数值大于数值类型的最大值，后者表示数值小于数值类型的最小值；Infinity，-Infinity与其他数值进行算数运算时，整个算数表达式将变成另一个特殊值：NaN（not a number）但Infinity和-Infinity都可以执行比较运算;两个Infinity总是相等的，而两个-Infinity也总是相等的，但NaN不会与任何数值相等，也就是NaN==NaN也返回false；JavaScript中的算术运算允许除数为零（除数和被除数也可同时为零，得到的结果就为NaN），正数除以零的结果就是正无穷Infinity，负数除以零的结果就是负无穷-Infinity；同时JavaScript提供了专门的方法isNaN（）去判断一个数是否为NaN，同时JavaScript也提供了一些简单的方法来访问这些特殊值，特殊值通过JavaScript的内嵌类Number访问，访问方式如下表所示：
+	![](http://i.imgur.com/M92hqEf.png)
 	
