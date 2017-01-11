@@ -1042,4 +1042,63 @@ noresize。
 		JavaScript只有一个异常类，所以try块后只能有一个catch块；
 		获取异常的描述信息是通过异常对象的message属性，而不是通过getMessage（）方法实现的。
 8. with语句
-	with语句是一种更简洁的写法，使用with语句可以可以避免重复书写对象，
+	with语句是一种更简洁的写法，使用with语句可以可以避免重复书写对象，with的语法格式如下所示：
+		with（object）
+		{
+			statements
+		}
+	如果with后的代码块只有一行语句，则可以省略花括号。但在只有一行语句的情况下，使用with语句意义不大，with语句的作用如下所示：
+		document.writeln（“Hello<br />”）;
+		document.writeln("World<br />");
+		document.writeln("JavaScript<br />");
+	使用with语句后：
+		with（document）
+		{
+			writeln("Hello<br />");
+			writeln("World<br />");
+			writeln("JavaScript<br />");
+		}
+9. 流程控制
+	JavaScript支持的流程控制也很丰富，JavaScript支持基本的分支语句，如if，if...else等；也支持基本的循环语句，如while，for等，还支持for in 循环等，循环相关的break，continue以及带标签的break，continue语句也支持。
+10. while 循环
+	while（expression）
+		{
+			statement...
+		}
+11. do while 循环
+	do while 循环与while循环的区别在于：while循环是先判断循环条件，只有条件为真才执行循环体，而do while循环是先执行循环体，然后判断循环条件，如果循环条件为真，就执行下一次循环，否则就终止，语法格式如下：
+		do
+		{statement...}
+		while(expression);
+12. for 循环
+	for循环是更加简洁的循环语句，大部分情况下，for循环可以代替while，do while循环，for循环的语法如下：
+		for（initialization;test condition;iteration statement）
+			{statements}
+	与前面循环类似，如果循环只有一句，则花括号的可以省略。
+13. for in循环
+	for in循环的本质是一种foreach循环，他主要的作用是：
+		遍历数组里所有的数组元素：
+			var a=['hello ','javascript','world'];
+			for (str in a)
+				document.writeln('索引'+str+'的值是：'+a[str]+'<br />');
+		遍历JavaScript对象的所有属性：
+			document.writeln（“<h1 >navigator对象的所有属性如下：</h1>”）;
+			for(propName in navigator)
+				{
+					document.writeln('属性'+properName+‘的值是：’+navigator[properName]);
+					document.writeln('<br />');
+				}
+14. break和continue
+	break和continue都可以终止循环，区别在于continue只是终止了本次循环，接着开始执行下一次循环（我们也可以视continue为忽略本次循环后面的执行语句）；而break则是完全终止整个循环，开始执行循环后面的代码。
+15. 函数
+	JavaScript是一种基于对象的脚本语言，JavaScript代码复用的单位是函数，但他的函数比结构化程序设计语言的功能更丰富，JavaScript语言中的函数就是“一等公民”，他可以独立存在：而且JavaScript的函数完全可以作为一个类使用（而且他还是该类的唯一的构造器）；与此同时。函数本身也是一个对象，函数本身是Function实例。JavaScript目前支持三种函数定义方式：
+		定义命名函数：
+		function functionName（parameter-list）
+			{statements}
+		定义匿名函数：
+		function（parameter-list）
+		{statements}；
+		定义Function类匿名函数：JavaScript提供了一个Function类，该类也可以用于定义函数，Function类的构造器的参数个数可以不受限制，Function可以接受一系列的字符串参数，其中最后一个字符串参数是函数的执行体，执行体的各语句以分号（；）隔开，而前面的各字符串参数则是函数的参数：
+			var f=new Function('name',"document.writeln('Function定义的函数<br>');"+"document.writeln('你好'+name)；")；
+			f('yeeku');
+		上面的代码使用new Function（）语法定义了一个匿名函数，并将该匿名函数赋给f变量，从而允许通过f来访问匿名函数，调用Function类的构造器来创建函数虽然能明确地表示创建了一个Function对象，但由于Function（）构造器的最后一个参数将变得十分臃肿，因此这种方式定义函数的可读性也不好。
