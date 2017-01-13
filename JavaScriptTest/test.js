@@ -17,15 +17,14 @@ function myFunction()
 		document.getElementById("p").innerHTML="哈哈，段落被我修改了";
 		document.getElementById("div").innerHTML="哈哈，div也被我修改了";
 		document.getElementById("h").innerHTML="哈哈，一号标题也被我修改了";
-
-
-
-
-
-
-
 }
-
+	function Person(name,age)
+	{
+		this.name=name;
+		this.age=age;
+		}
+	var a=new Person('luhu',20);
+	document.writeln('年龄是：'+a.age+'<br/>','姓名是：'+a.name+'<br/>');
 
 
 
