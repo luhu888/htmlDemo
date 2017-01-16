@@ -6,7 +6,7 @@ do {
 	alert("还没到9次！");
 	a++;
 }
-while(a<10);
+while(a<2);
 
 
 
@@ -18,14 +18,17 @@ function myFunction()
 		document.getElementById("div").innerHTML="哈哈，div也被我修改了";
 		document.getElementById("h").innerHTML="哈哈，一号标题也被我修改了";
 }
-	function Person(name,age)
+function p()
+{
+function Person(name,job)
 	{
 		this.name=name;
-		this.age=age;
-		}
-	var a=new Person('luhu',20);
-	document.writeln('年龄是：'+a.age+'<br/>','姓名是：'+a.name+'<br/>');
-
+		this.job=job;
+	}	
+	a=new Person('luhu','boss');
+	document.getElementById('wh').innerHTML='welcome '+a.name+',the '+a.job+'!';
+	
+}
 
 
 

@@ -185,6 +185,7 @@ noresize。
 		< form>用于生成输入表单，该元素不会生成可视化部分，他有如下几个属性：
 			action指定当单击表单内的‘确认’按钮时，该表单被提交到那个地址，该属性既可以指定一个绝对地址，也可以指定一个相对地址，该属性必填。
 			method指定提交表单时发送何种请求，属性值为get或post，建议发送POST请求，该属性必填。
+			onsubmit属性：当表单提交时执行该属性值对应的脚本；
 			enctype指定对表单内容进行编码所使用的字符集，就是指定表单数据的编码方式，该属性值有以下三个：
 				application/x-www-form-urlencoded这是默认的编码方式，他只处理表单控件里的value属性值，采用这种编码方式的表单会将表单控件的值处理成URL编码方式。
 				multipart/form-data这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数里，当需要通过表单上传文件是使用该属性值。
@@ -249,6 +250,7 @@ noresize。
 	placeholder属性，当用户还未输入内容时，在文本框中出现的提示信息，当用户开始输入时，提示信息会自动消失。
 	list属性:即允许用户输入，也允许用户通过下拉菜单选择，但该属性必须与datalist元素结合使用：
 		< datalist>该元素相当于一个看不见的< select>元素，用于生成一个隐藏的下拉菜单，< datalist>包含的子元素和< select>元素完全相同。该元素用于与制定了list属性的< input>元素结合使用，当双击指定了list属性的文本框时，该文本将会显示<datalsit>生成的下拉菜单，但chrome暂时不支持该属性。（Firefox，opera支持）
+	
 	h5中< input>元素新增的属性type有如下几个值：
 		color：让input元素生成一个颜色选择器，当用户在颜色选择器中选中指定颜色后，该文本框内自动显示该用户选中的颜色，该文本框的value为改颜色的值。
 		date：让input元素生成一个日期选择器。
@@ -1041,8 +1043,9 @@ noresize。
 		JavaScript是弱类型语言，所以catch语句后括号里的异常实例无需声明类型；
 		JavaScript只有一个异常类，所以try块后只能有一个catch块；
 		获取异常的描述信息是通过异常对象的message属性，而不是通过getMessage（）方法实现的。
-8. with语句
-	with语句是一种更简洁的写法，使用with语句可以可以避免重复书写对象，with的语法格式如下所示：
+8. 
+9. 语句
+	with 语句可以方便地用来引用某个特定对象中已有的属性，但是不能用来给对象添加属性。要给对象创建新的属性，必须明确地引用该对象。  with语句是一种更简洁的写法，使用with语句可以避免重复书写对象，with的语法格式如下所示：
 		with（object）
 		{
 			statements
@@ -1089,7 +1092,18 @@ noresize。
 					document.writeln('<br />');
 				}
 14. break和continue
-	break和continue都可以终止循环，区别在于continue只是终止了本次循环，接着开始执行下一次循环（我们也可以视continue为忽略本次循环后面的执行语句）；而break则是完全终止整个循环，开始执行循环后面的代码。
+	break和continue都可以终止循环，区别在于continue只是终止了本次循环，接着开始执行下一次循环（我们也可以视continue为忽略本次循环后面的执行语句）；而break则是完全终止整个循环，开始执行循环后面的代码；break和continue语句仅仅是能够跳出代码块的语句，continue语句（带有或不带有标签引用）只能在循环中，break语句（不带标签引用），只能在循环或switch中，通过标签引用，break语句可用于跳出任何JavaScript代码块：
+		cars=["BMW","Volvo","Saab","Ford"];
+			list:
+			{
+			document.write(cars[0] + "<br>");
+			document.write(cars[1] + "<br>");
+			document.write(cars[2] + "<br>");
+			break list;
+			document.write(cars[3] + "<br>");
+			document.write(cars[4] + "<br>");
+			document.write(cars[5] + "<br>");
+			}
 15. 函数
 	JavaScript是一种基于对象的脚本语言，JavaScript代码复用的单位是函数，但他的函数比结构化程序设计语言的功能更丰富，JavaScript语言中的函数就是“一等公民”，他可以独立存在：而且JavaScript的函数完全可以作为一个类使用（而且他还是该类的唯一的构造器）；与此同时。函数本身也是一个对象，函数本身是Function实例。JavaScript目前支持三种函数定义方式：
 		定义命名函数：
