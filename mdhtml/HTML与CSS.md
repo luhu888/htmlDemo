@@ -135,7 +135,7 @@ noresize。
 
 50. hidden属性：h5为所有元素都提供了一个hidden属性，一旦把某个html元素的hidden设为true，就意味着浏览器不显示该组件，浏览器也不会保留该组件所占用的内存。
 
-51. spellcheck属性，h5为< input.../>,< textarea.../>等元素添加了spellcheck属性，如果设置为true，浏览器就会对输入的英文进行拼写检查，不通过就会下划红线提示。
+51. spellcheck属性，h5为< input.../>,< .../>等元素添加了spellcheck属性，如果设置为true，浏览器就会对输入的英文进行拼写检查，不通过就会下划红线提示。
 
 52. h5新增的文档结构元素，< article>用于标记一篇完整的文档内容，并且关于< article>的简单规则如下：内部使用< header>定义文档标题部分，< footer>定义文档脚注部分，< section>把文档分成几个段落，内部可嵌套多个< article>作为附属文章。
     < nav>该元素专门用于定义页面上的“导航条”，包括页面上方的“主导航条”，侧边的“边栏导航”，页面内部的“页面导航”，h5推荐将这些导航链接分别放入对应的< nav>元素中进行管理。
@@ -316,7 +316,8 @@ noresize。
 	![](http://i.imgur.com/FI8yeQF.png)
 	考虑到各浏览器对音频，视频的支持互不相同，开发者可能希望为< audio>,< video>元素指定多个媒体源，此时就可以借助于< source>子元素来实现，< soure>元素可指定如下两个重要属性：
 		src该属性指定音频，视频文件的URL，
-		type该属性指定音频，视频文件的类型，该属性的值既可以是简单的MIME字符串，例如audio/ogg,audio/mpeg等，也可以是MIME字符串并带codecs属性，codecs属性用于指定该视频文件的编码格式，例如可以指定为audio/ogg；codecs=‘vobis’。通常来说，指定codecs属性可以提供更多信息，更便于浏览器判断是否能播放此种类型的音频，视频。
+		type该属性指定音频，视频文件的类型，该属性的值既可以是简单的MIME字符串，例如audio/ogg,audio/mpeg等，也可以是MIME字符串并带codecs属性，codecs属性用于
+		指定该视频文件的编码格式，例如可以指定为audio/ogg；codecs=‘vobis’。通常来说，指定codecs属性可以提供更多信息，更便于浏览器判断是否能播放此种类型的音频，视频。
 
 65. HTMLAudioElement与HTMLVideoElement的属性，当调用HTMLAudioElement，HTMLVideoElement的方法播放媒体后，JavaScript脚本可能还需要通过他们的属性来了解其状态。HTMLAudioElement与HTMLVideoElement的属性如下所示：
 	buffered只读属性，该属性将会返回一个TimeRanges对象，通过该对象可以获取浏览器已经缓存的媒体数据
@@ -1136,3 +1137,145 @@ noresize。
 	apply（）方法调用函数，apply（）方法与call（）方法基本类似，他们都可以动态调用函数，但有以下区别：
 		通过call（）调用函数时，必须在括号中详细地列出每个参数；
 		通过apply（）动态地调用函数时，可以在括号中以arguments来代替所有参数。	
+20. HTML DOM
+	DOM 是 W3C（万维网联盟）的标准。
+		DOM 定义了访问 HTML 和 XML 文档的标准：“W3C 文档对象模型 （DOM） 是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。”
+	HTML DOM 是：
+		HTML 的标准对象模型
+		HTML 的标准编程接口
+		W3C 标准
+		HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的方法。
+		换言之，HTML DOM 是关于如何获取、修改、添加或删除 HTML 元素的标准。
+	DOM 节点:
+		根据 W3C 的 HTML DOM 标准，HTML 文档中的所有内容都是节点：
+		整个文档是一个文档节点;
+		每个 HTML 元素是元素节点;
+		HTML 元素内的文本是文本节点;
+		每个 HTML 属性是属性节点;
+		注释是注释节点。
+	HTML DOM 节点树：
+		HTML DOM 将 HTML 文档视作树结构。这种结构被称为节点树：通过 HTML DOM，树中的所有节点均可通过JavaScript 进行访问。所有 HTML 元素（节点）均可被修改，也可以创建或删除节点。
+	节点父、子和同胞：节点树中的节点彼此拥有层级关系。
+		父（parent）、子（child）和同胞（sibling）等术语用于描述这些关系。父节点拥有子节点。同级的子节点被称为同胞（兄弟或姐妹）。
+		在节点树中，顶端节点被称为根（root）；
+		每个节点都有父节点、除了根（它没有父节点）；
+		一个节点可拥有任意数量的子；
+		同胞是拥有相同父节点的节点。
+	编程接口
+		可通过 JavaScript （以及其他编程语言）对 HTML DOM 进行访问。
+		所有 HTML 元素被定义为对象，而编程接口则是对象方法和对象属性。
+		方法是您能够执行的动作（比如添加或修改元素）。
+		属性是您能够获取或设置的值（比如节点的名称或内容）。
+	一些 DOM 对象的常用方法：
+			getElementById()：	        返回带有指定 ID 的元素。
+			getElementsByTagName()：  	返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。
+			getElementsByClassName()：	返回包含带有指定类名的所有元素的节点列表。
+			appendChild()：	            把新的子节点添加到指定节点。
+			removeChild()：	            删除子节点。
+			replaceChild()：         	替换子节点。
+			insertBefore()：         	在指定的子节点前面插入新的子节点。
+			createAttribute()：	        创建属性节点。
+			createElement()：	        创建元素节点。
+			createTextNode()：	        创建文本节点。
+			getAttribute()：	            返回指定的属性值。
+			setAttribute()：           	把指定属性设置或修改为指定的值。
+	一些DOM对象的常用属性:
+			innerHTML 属性:获取元素内容的最简单方法是使用 innerHTML 属性,innerHTML 属性对于获取或替换 HTML 元素的内容很有用。
+			nodeName 属性:  nodeName 属性规定节点的名称。
+							nodeName 是只读的  
+							元素节点的 nodeName 与标签名相同
+							属性节点的 nodeName 与属性名相同
+							文本节点的 nodeName 始终是 #text
+							文档节点的 nodeName 始终是 #document
+							注释：nodeName 始终包含 HTML 元素的大写字母标签名。
+			nodeValue 属性: nodeValue 属性规定节点的值。
+							元素节点的 nodeValue 是 undefined 或 null
+							文本节点的 nodeValue 是文本本身
+							属性节点的 nodeValue 是属性值
+			nodeType 属性:nodeType 属性返回节点的类型。nodeType 是只读的。
+				比较重要的节点类型有：
+						元素类型		NodeType
+						　元素			1
+						　属性			2
+						　文本			3
+						　注释			8
+						　文档			9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

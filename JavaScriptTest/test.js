@@ -30,15 +30,37 @@ function Person(name,job)
 	
 }
 
+function myFunction6()
+	{
+		var x=document.getElementById('hello').innerHTML;
+		document.getElementById('hello1').innerHTML=x;
+		var y=document.getElementById('hello');
+		z=y.firstChild.nodeValue;
+		document.getElementById('hello2').innerHTML=z;
+		}
 
+function myFunction7()
+{
+	var parent=document.getElementById('div1');
+	var child=document.getElementById('p1');
+	parent.removeChild(child);
+	}
+function myFunction8()
+{
+	document.getElementById('hello2').innerHTML=Date();
+	}
 
+function myFunction9()
+{
+	var x=document.getElementById('up');
+	x.value=x.value.toUpperCase();
+	}
 
-
-
-
-
-
-
+function myFunction10()
+{
+	z=document.write(document.domain)
+	document.getElementById('do').innerHTML=z;
+	}
 
 
 
