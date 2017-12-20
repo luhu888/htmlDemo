@@ -1,2 +1,2 @@
 # htmlDemo
-HTML CSS JavaScript 随笔
+HTML CSS JavaScript 入门小demo
